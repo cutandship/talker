@@ -26,12 +26,16 @@ recovery/
 crash.log
 talker.log
 
-# --- Сборка ---
+# --- Сборка (артефакты, генерируются — не в git) ---
 build/
 dist/
 release/
 build_out.log
+# Talker.spec пересоздаётся build.py из CLI (с абсолютными путями) — не храним
+*.spec
 *.spec.bak
+# инсталлятор / собранные exe — релизные артефакты, не исходники
+*.exe
 
 # --- Кэш синтезированных звуков (концепт 36) ---
 assets/sounds/cache/
