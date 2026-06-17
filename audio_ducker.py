@@ -25,19 +25,19 @@ _OUR_PID = os.getpid()
 
 
 def _release_com_cycles() -> None:
-    """Collect cyclic garbage NOW, on the CALLING thread. pycaw/comtypes COM
-    objects (IMMDeviceEnumerator, IAudioEndpointVolume, …) end up in reference
-    cycles, so refcounting alone won't free them — they linger until some GC
-    pass collects them, and if that pass runs on a *different* thread than the
-    one that created them, Release() is a cross-apartment call → native access
-    violation (0xc0000005) that kills the process. Forcing the collection here,
-    on the thread that just created them, makes that Release happen on the
-    owning thread, where it is safe."""
-    try:
-        import gc
-        gc.collect()
-    except Exception:
-        pass
+    """No-op (kept so existing call sites stay valid).
+
+    This USED to call gc.collect() on the duck-worker thread to free comtypes
+    reference cycles. But gc.collect() is GLOBAL: it also finalises COM objects
+    owned by OTHER threads (the UIA injector, the tray icon), and releasing an
+    apartment-bound pointer from a thread other than the one that created it is a
+    cross-apartment call → native access violation (0xc0000005) that kills the
+    process. That was the crash.
+
+    The ducker now keeps ALL COM on its single worker thread (main.py routes every
+    call through `_duck_worker`) and caches the master endpoint for the app's
+    lifetime, so nothing here needs a forced collection anymore."""
+    return
 
 # Crash-resilience: when master-ducking starts we record the pre-duck volume
 # here; restore() deletes it. If Talker crashes mid-duck (e.g. while recording),
@@ -62,11 +62,14 @@ class AudioDucker:
         self._mode = mode
         # session backend: (ISimpleAudioVolume, original_volume) tuples
         self._saved_sessions: list[tuple[Any, float]] = []
-        # master backend: ONLY the original scalar to restore — never the COM
-        # pointer. An IAudioEndpointVolume pointer is apartment-bound; using or
-        # releasing it from a different thread than created it is a
-        # cross-apartment call → native crash (access violation in _ctypes.pyd).
         self._saved_master: float | None = None
+        # Cached master endpoint. COM pointers are apartment-bound, so it is
+        # acquired AND only ever used on the single duck-worker thread (main.py
+        # routes every ducker call through `_duck_worker`). Cached for the app's
+        # lifetime and NEVER released — so we never make a cross-apartment Release
+        # and never need a global gc.collect() (the old per-call acquire + collect
+        # crashed: gc on this thread finalised COM owned by other threads).
+        self._endpoint = None
         self._active = False
 
     def is_available(self) -> bool:
@@ -159,30 +162,36 @@ class AudioDucker:
             ep = None
             _release_com_cycles()   # release the COM cycle on THIS thread
 
+    def _get_endpoint(self):
+        """Return the cached master endpoint, acquiring it once on first use.
+        MUST only ever be called on the single duck-worker thread (apartment
+        bound). We keep it for the app's lifetime and never Release it."""
+        if self._endpoint is None:
+            self._endpoint = self._acquire_endpoint()
+        return self._endpoint
+
     def _start_master(self) -> bool:
-        endpoint = None
         try:
-            endpoint = self._acquire_endpoint()
-            cur = float(endpoint.GetMasterVolumeLevelScalar())
+            ep = self._get_endpoint()
+            cur = float(ep.GetMasterVolumeLevelScalar())
+            target = min(cur, self._duck_level)
             # Persist the pre-duck level BEFORE cutting it, so a crash mid-duck
             # leaves a breadcrumb the next launch can recover from.
             try:
                 _DUCK_STATE.write_text(f"{cur:.4f}", encoding="utf-8")
             except Exception:
                 pass
-            endpoint.SetMasterVolumeLevelScalar(min(cur, self._duck_level), None)
-            # Store ONLY the scalar; `endpoint` is released here, on this thread.
+            ep.SetMasterVolumeLevelScalar(target, None)
             self._saved_master = cur
-            logger.info(f"Ducker(master): {cur:.0%} → {self._duck_level:.0%}")
+            logger.info(f"Ducker(master): {cur:.0%} → {target:.0%}")
+            if target >= cur - 0.005:
+                logger.info("Ducker(master): system volume already ≤ duck level — "
+                            "no audible change (Bluetooth/hardware-controlled output "
+                            "won't duck via the master endpoint; try duck_mode=sessions)")
             return True
         except Exception:
             logger.exception("master-ducker failed")
             return False
-        finally:
-            # Drop the COM pointer + collect its cycle here, on the creating
-            # thread (never leave it for a foreign-thread GC → crash).
-            endpoint = None
-            _release_com_cycles()
 
     def _start_sessions(self) -> bool:
         from pycaw.pycaw import AudioUtilities
@@ -221,14 +230,12 @@ class AudioDucker:
     def restore(self) -> None:
         if not self._active:
             return
-        # Master — re-acquire a fresh endpoint on THIS thread (the stored pointer
-        # would be cross-apartment; calling/releasing it here would crash).
-        endpoint = None
+        # Master — reuse the cached endpoint (same worker thread that ducked, so
+        # no cross-apartment call; no Release, no gc).
         if self._saved_master is not None:
             orig = self._saved_master
             try:
-                endpoint = self._acquire_endpoint()
-                endpoint.SetMasterVolumeLevelScalar(orig, None)
+                self._get_endpoint().SetMasterVolumeLevelScalar(orig, None)
                 logger.info(f"Ducker(master) restored to {orig:.0%}")
             except Exception:
                 logger.debug("Could not restore master volume", exc_info=True)
@@ -237,7 +244,9 @@ class AudioDucker:
                 _DUCK_STATE.unlink(missing_ok=True)
             except Exception:
                 pass
-        # Sessions
+        # Sessions — restore, then drop the refs. They were created on THIS worker
+        # thread, so the refcount Release on clear() happens here too (safe). No
+        # global gc.collect() — that finalised foreign-thread COM and crashed.
         for vol, orig in self._saved_sessions:
             try:
                 vol.SetMasterVolume(orig, None)
@@ -245,7 +254,3 @@ class AudioDucker:
                 logger.debug("Could not restore a session volume", exc_info=True)
         self._saved_sessions.clear()
         self._active = False
-        # Release every COM pointer touched above + collect their cycles on THIS
-        # thread, so no apartment-bound pointer is left for a foreign-thread GC.
-        endpoint = None
-        _release_com_cycles()

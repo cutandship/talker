@@ -67,7 +67,7 @@ class FlowBar:
     @property
     def _BAR_GAP(self):  return self._ws(3)
     @property
-    def _BAR_MAX(self):  return self._ws(40)   # waveform height (+10%, отчётливее)
+    def _BAR_MAX(self):  return self._ws(42)   # waveform height (повыше — прыжки заметнее)
     @property
     def _W_IDLE(self):   return self._ws(112)    # compact mic pill (cumulative width tweaks)
     @property
@@ -695,7 +695,8 @@ class FlowBar:
                 except Exception:
                     rms = 0.0
                 # Perceptual (sqrt) mapping → quiet vs loud speech both visible.
-                lvl = math.sqrt(max(0.0, rms)) * 3.2
+                # Multiplier boosted (3.2 → 5.5) so the bars jump higher/livelier.
+                lvl = math.sqrt(max(0.0, rms)) * 5.5
                 # Голубой (listening, Ctrl+Alt+Space) прыгает на всю высоту, как
                 # красный (recording, PTT) — раньше listening резался вдвое (0.5).
                 cap = 1.0
@@ -705,7 +706,8 @@ class FlowBar:
                 if self._tick_n % 30 == 0:
                     logger.info(f"FlowBar wave: state={self._state} rms={rms:.4f} lvl={lvl:.2f}")
             for i in range(self._BAR_N):
-                self._bar_h[i] += 0.5 * (self._bar_tgt[i] - self._bar_h[i])
+                # Snappier follow (0.5 → 0.7) so bars «скачут» livelier.
+                self._bar_h[i] += 0.7 * (self._bar_tgt[i] - self._bar_h[i])
         else:
             # Decay bars when not active
             for i in range(self._BAR_N):
@@ -889,7 +891,8 @@ class FlowBar:
             bx = int(round(x0 + i * step))
             y0 = cy - bh // 2
             y1 = cy + bh // 2
-            # Rounded bar: oval gives natural capsule shape
+            # Rounded bar in the state colour (recording → red). Single oval per
+            # bar = light capsule shape.
             c.create_oval(bx, y0, bx + bar_w, y1, fill=color, outline="")
 
     def _draw_timer(self, c: tk.Canvas, right_x: int, cy: int) -> None:

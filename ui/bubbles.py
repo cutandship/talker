@@ -188,7 +188,7 @@ class PasteFallbackBubble:
     _MSG = {
         "failed": "Текст скопирован в буфер обмена",
         "typing": "Текст скопирован в буфер обмена",
-        "always": "Готово",
+        "always": "Скопировано в буфер обмена",
     }
 
     # Font anchored to ONE knob: _FONT_PT × UI-scale ÷ _FONT_DIV (1.5× smaller

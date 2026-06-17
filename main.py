@@ -1816,6 +1816,7 @@ class App:
 
     def _show_settings(self, icon=None, item=None) -> None:
         if getattr(self.config.ui, "web_windows", True) and self._open_web_ui("main"):
+            self._suppress_pill()   # keep pill on top after Edge grabs foreground
             return
         if self.root:
             self.root.after(0, lambda: SettingsWindow.open(
@@ -1900,9 +1901,16 @@ class App:
         open — the user wants it to stay on screen. (We used to drop its
         topmost flag here, which let other windows cover it so it looked like it
         vanished.) set_behind(False) keeps it always-on-top; it does NOT
-        deiconify, so a manually-hidden pill stays hidden."""
+        deiconify, so a manually-hidden pill stays hidden.
+
+        Opening a window — especially the Edge --app web UI — grabs the foreground
+        and Windows can knock a Tk overrideredirect topmost window out of the
+        z-order (the pill blinks out, then comes back). Edge launches async, so a
+        single immediate re-lift loses the race; re-assert a few times as the new
+        window settles."""
         if self.root and self.flowbar:
-            self.root.after(0, lambda: self.flowbar.set_behind(False))
+            for delay in (0, 250, 700, 1400):
+                self.root.after(delay, lambda: self.flowbar.set_behind(False))
 
     def _show_url_transcribe(self, icon=None, item=None) -> None:
         if self.root:
@@ -1910,6 +1918,7 @@ class App:
 
     def _show_history(self, icon=None, item=None) -> None:
         if getattr(self.config.ui, "web_windows", True) and self._open_web_ui("history"):
+            self._suppress_pill()   # keep pill on top after Edge grabs foreground
             return
         if self.root:
             self.root.after(
