@@ -729,15 +729,6 @@ class App:
                             f"{'DOWN' if event.event_type==keyboard.KEY_DOWN else 'UP'} "
                             f"sc={getattr(event,'scan_code',None)}")
 
-            # TEMP DIAG (modifiers only, low-noise): see how right-alt/AltGr is
-            # reported so PTT matching can be confirmed/corrected. Remove once PTT
-            # on right-alt is verified working.
-            if ("alt" in name or "ctrl" in name or "menu" in name
-                    or getattr(event, "scan_code", None) == 541):
-                logger.info(f"MODDIAG {name!r} "
-                            f"{'DOWN' if event.event_type==keyboard.KEY_DOWN else 'UP'} "
-                            f"sc={getattr(event,'scan_code',None)}")
-
             # "User is typing" timestamp — anything that isn't a pure modifier
             # / lock counts. PTT release also resets it after the recording
             # ends (see _on_release) so PTT itself doesn't poison the signal.
