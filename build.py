@@ -1,11 +1,14 @@
 """
 Build Talker into a portable one-folder executable.
-Run: python build.py
+Run: python build.py            → OFFLINE build (default): GigaAM v3 bundled as
+                                  plain files, fully self-contained, no download.
+    python build.py --lite      → skip the model (downloads on first run; fragile
+                                  on Windows due to HF cache symlinks — not advised).
 Output: dist/Talker/  — copy this folder anywhere, run Talker.exe
 
-Bundles the GigaAM v3 model (default engine) so it works fully offline on first
-launch. Whisper stays on-demand (downloads when the user switches engine) to keep
-the folder ~2 GB instead of ~3.6 GB.
+The default RU engine (GigaAM v3) ships inside the folder, so a fresh machine
+works immediately with no internet. Whisper (other languages) is still on-demand:
+it downloads from HuggingFace the first time the user switches engine.
 """
 from __future__ import annotations
 
@@ -157,13 +160,17 @@ def main() -> None:
         src = HERE / fname
         if src.exists():
             shutil.copy2(src, dist / fname)
-    # Lite по умолчанию: модель НЕ бандлится — скачается при первом запуске (~250 МБ,
-    # прогресс в трее), дистрибутив компактный. `python build.py --bundle-model` —
-    # тяжёлая офлайн-сборка с зашитой моделью (~+1 ГБ).
-    if "--bundle-model" in sys.argv:
-        bundle_gigaam(dist)
+    # OFFLINE ПО УМОЛЧАНИЮ: модель GigaAM v3 вшивается плоскими файлами →
+    # самодостаточный дистрибутив, работает сразу, без интернета и без HF-кэша
+    # (его snapshot-симлинки на части машин не читаются установленным exe —
+    # WinError 448). `--lite` пропускает бандл (модель тогда качается при первом
+    # запуске в HF-кэш; НЕ рекомендуется — ровно тот баг). `--bundle-model`
+    # оставлен как синоним дефолта для обратной совместимости.
+    if "--lite" in sys.argv:
+        print("\n[lite] Модель НЕ забандлена (--lite) — GigaAM v3 скачается при "
+              "первом запуске в HF-кэш (на части машин ломается, WinError 448).")
     else:
-        print("\n[lite] Модель не забандлена — GigaAM v3 скачается при первом запуске.")
+        bundle_gigaam(dist)
 
     # NB: ASCII only — the Windows console codepage (cp1251) can't encode ✓/… .
     print(f"\n[OK] Done! Portable folder: {dist}  (~{_dir_size_mb(dist):.0f} MB)")
