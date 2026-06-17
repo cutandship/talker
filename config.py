@@ -259,7 +259,7 @@ class UiConfig:
 @dataclass
 class WidgetConfig:
     """Floating pill (FlowBar) appearance and position."""
-    scale: float = 0.6                # multiplier on top of UI scale
+    scale: float = 1.0                # multiplier on top of UI scale (1.0 = 1× по умолчанию)
     opacity: float = 0.8              # window alpha (0.0 transparent, 1.0 solid)
     show_listening_label: bool = False  # show "Слушаю" text in continuous mode
     show_glow: bool = False           # pulsing colored halo around the pill
