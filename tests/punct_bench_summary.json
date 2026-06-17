@@ -1,0 +1,33 @@
+{
+  "n_cases": 10000,
+  "corpus": "C:\\Users\\user\\Desktop\\AI R&D\\Talker\\_corpus\\clean.txt",
+  "model": {
+    "comma_precision": 0.8385,
+    "comma_recall": 0.6989,
+    "comma_f1": 0.7623,
+    "comma_tp": 7184,
+    "comma_fp": 1384,
+    "comma_fn": 3095,
+    "cap_accuracy": 0.9681,
+    "end_present_rate": 0.9933,
+    "end_type_accuracy": 0.9682,
+    "exact_match": 0.3751
+  },
+  "current_backend": "heuristic",
+  "timing_sec": {
+    "current": 0.01,
+    "model": 55.79
+  },
+  "current": {
+    "comma_precision": 0.0,
+    "comma_recall": 0.0,
+    "comma_f1": 0.0,
+    "comma_tp": 0,
+    "comma_fp": 0,
+    "comma_fn": 10279,
+    "cap_accuracy": 0.9202,
+    "end_present_rate": 0.9995,
+    "end_type_accuracy": 0.9715,
+    "exact_match": 0.1622
+  }
+}

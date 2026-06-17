@@ -1,0 +1,10 @@
+numba-0.65.1-cp311-cp311-win_amd64.whl https://files.pythonhosted.org/packages/bd/9a/af61ec03b3116c161fd7a06b9e8a265729a8718458333e8ffbb06d9a3978/numba-0.65.1-cp311-cp311-win_amd64.whl
+llvmlite-0.47.0-cp311-cp311-win_amd64.whl https://files.pythonhosted.org/packages/a2/50/59227d06bdc96e23322713c381af4e77420949d8cd8a042c79e0043096cc/llvmlite-0.47.0-cp311-cp311-win_amd64.whl
+speechbrain-0.5.14-py3-none-any.whl https://files.pythonhosted.org/packages/64/ed/500aec1df26ee70fc341338091ff7b318cfc08908b404db4dc8dc14e06df/speechbrain-0.5.14-py3-none-any.whl
+audiomentations-0.43.1-py3-none-any.whl https://files.pythonhosted.org/packages/57/da/1f3304698f47c2869bcd60d862013072970d65b74db560898be3e217c2f2/audiomentations-0.43.1-py3-none-any.whl
+librosa-0.11.0-py3-none-any.whl https://files.pythonhosted.org/packages/b5/ba/c63c5786dfee4c3417094c4b00966e61e4a63efecee22cb7b4c0387dda83/librosa-0.11.0-py3-none-any.whl
+soxr-1.1.0-cp311-cp311-win_amd64.whl https://files.pythonhosted.org/packages/8f/29/371467eb86c7ba6810df0bfe9409bcd9c52ec5615b111190fafe23e4d2e1/soxr-1.1.0-cp311-cp311-win_amd64.whl
+hyperpyyaml-1.2.3-py3-none-any.whl https://files.pythonhosted.org/packages/7d/a5/98e20cc4365e293dfc1382e2f8dbf44b1cb14d75658ab5147cb0d6d8718e/hyperpyyaml-1.2.3-py3-none-any.whl
+sentencepiece-0.2.1-cp311-cp311-win_amd64.whl https://files.pythonhosted.org/packages/32/b8/f709977f5fda195ae1ea24f24e7c581163b6f142b1005bc3d0bbfe4d7082/sentencepiece-0.2.1-cp311-cp311-win_amd64.whl
+pronouncing-0.3.0-py3-none-any.whl https://files.pythonhosted.org/packages/b7/5d/ecb2b6e822df7fb0c86939b29bc48193e15c350433821e5f4c7d669e79cb/pronouncing-0.3.0-py3-none-any.whl
+torchaudio-2.6.0+cu124-cp311-cp311-win_amd64.whl https://download.pytorch.org/whl/cu124/torchaudio-2.6.0%2Bcu124-cp311-cp311-win_amd64.whl

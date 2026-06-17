@@ -1,0 +1,22 @@
+Talker wake-word training patches
+=================================
+
+This directory contains MODIFIED copies of source files from openWakeWord
+(https://github.com/dscripka/openWakeWord), Copyright 2022 David Scripka,
+licensed under the Apache License, Version 2.0 (see ./LICENSE).
+
+Modified files: data.py, train.py, utils.py
+Modifications by Cut & Ship (https://cutandship.dev) for the Talker wake-word
+training pipeline. See ./README.md for the rationale of each change.
+
+----------------------------------------------------------------------
+openWakeWord pre-trained feature models — NonCommercial (IMPORTANT)
+----------------------------------------------------------------------
+The trained wake models in ../out/final/*.onnx run on top of openWakeWord's
+shared feature models (melspectrogram.onnx and embedding_model.onnx, fetched by
+../download_features.py). Per the openWakeWord project, those pre-trained
+feature components are licensed CC BY-NC-SA 4.0 (NonCommercial) due to their
+training-data terms, whereas openWakeWord's *code* is Apache-2.0. The
+NonCommercial restriction therefore applies to the wake-word feature stack,
+not to Talker's own (MIT) code. Review this before any commercial use of the
+wake-word feature.

@@ -1,0 +1,28 @@
+{
+  "n": 250,
+  "model": "gigaam-v3-e2e-rnnt + RUPunct_small",
+  "native": {
+    "comma_precision": 0.8092,
+    "comma_recall": 0.8249,
+    "comma_f1": 0.817,
+    "comma_tp": 212,
+    "comma_fp": 50,
+    "comma_fn": 45,
+    "cap_accuracy": 0.9794,
+    "end_present_rate": 0.992,
+    "end_type_accuracy": 0.98,
+    "exact_match": 0.296
+  },
+  "rupunct": {
+    "comma_precision": 0.7454,
+    "comma_recall": 0.6265,
+    "comma_f1": 0.6808,
+    "comma_tp": 161,
+    "comma_fp": 55,
+    "comma_fn": 96,
+    "cap_accuracy": 0.9755,
+    "end_present_rate": 0.996,
+    "end_type_accuracy": 0.976,
+    "exact_match": 0.244
+  }
+}

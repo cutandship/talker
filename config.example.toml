@@ -1,0 +1,66 @@
+# config.example.toml — пример настроек Talker.
+#
+# Реальный config.toml НЕ нужен заранее: приложение создаёт его со всеми
+# дефолтами при первом запуске и переписывает при сохранении настроек в UI.
+# Этот файл — справочник по ключевым опциям. Чтобы задать стартовые значения
+# вручную: скопируй в config.toml и поправь (config.toml в .gitignore).
+
+[hotkey]
+key  = "right alt"      # клавиша push-to-talk
+mode = "hold"           # hold | toggle
+
+[stt]
+engine       = "gigaam"                 # gigaam (русский) | whisper (любой язык)
+gigaam_model = "gigaam-v3-e2e-rnnt"     # e2e = встроенные пунктуация + числа
+model        = "mobiuslabsgmbh/faster-whisper-large-v3-turbo"  # для engine=whisper
+language     = "ru"
+device       = "cpu"                    # cpu | cuda
+compute_type = "int8"
+cpu_threads  = 0                        # 0 = авто
+
+[output]
+restore_clipboard = true
+injection_mode    = "clipboard"   # clipboard | sendinput | uia | auto
+remove_fillers    = true          # вырезать «ну», «э-э»
+voice_commands    = true          # «новый абзац», «точка» и т.п.
+voice_gate        = true          # игнор случайной речи без намерения диктовать
+number_format     = false         # «двадцать пять» → «25» (ITN)
+mask_profanity    = true
+
+[continuous]
+silence_secs = 1.2                # пауза для авто-стопа в hands-free
+media_guard  = true               # не печатать со звука из колонок
+
+[audio]
+mic_index       = -1              # -1 = устройство по умолчанию
+mic_gain        = 1.0
+source          = "mic"          # mic | system (loopback для meeting-режима)
+duck_other_apps = true           # приглушать прочий звук во время записи
+
+[history]
+max_entries    = 1000
+retention_days = 0               # 0 = не удалять автоматически
+on_quit_clear  = false
+
+[sounds]
+enabled = true
+volume  = 0.9
+
+[ui]
+font_scale = 1.3
+theme      = "dark"              # dark | light
+web_windows = true              # лёгкие web-окна вместо Tk
+
+[wake]
+enabled   = true
+model     = "hey_jarvis"
+threshold = 0.65
+
+[api]
+enabled = false                 # локальный HTTP API (127.0.0.1, токен)
+port    = 7869
+
+# Голосовые команды и cleaner-цепочка дописываются дефолтами автоматически.
+# По умолчанию очистка локальная и без LLM:
+[[cleaner]]
+type = "noop"

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Talker</title>
+<style>
+  /* Тёмный фон с первого кадра — без белой вспышки при открытии окна. */
+  html{background:#121212}
+  :root{
+    --bg:#121212; --panel:#1a1a1a; --card:#222; --line:#333;
+    --fg:#ececec; --dim:#9a9a9a; --accent:#0d9488; --accent2:#00d4aa;
+    --danger:#c0392b; --hit:#ffc844;
+  }
+  body.light{
+    --bg:#f3f3f3; --panel:#e9e9e9; --card:#ffffff; --line:#d4d4d4;
+    --fg:#1a1a1a; --dim:#666; --hit:#9a6b00;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--fg);
+       font:14px/1.45 "Segoe UI Variable Text","Segoe UI",sans-serif;
+       display:flex;overflow:hidden}
+  /* ── Сайдбар ── */
+  nav{width:200px;min-width:200px;background:var(--panel);display:flex;
+      flex-direction:column;padding:10px 8px;gap:2px}
+  nav .logo{font-weight:700;font-size:16px;padding:6px 10px 12px;color:var(--accent2)}
+  nav button{all:unset;cursor:pointer;padding:9px 12px;border-radius:8px;color:var(--fg)}
+  nav button:hover{background:rgba(128,128,128,.15)}
+  nav button.act{background:var(--accent);color:#fff}
+  nav .grow{flex:1}
+  nav .save{all:unset;cursor:pointer;text-align:center;background:var(--accent);
+            color:#fff;padding:10px;border-radius:8px;font-weight:600}
+  nav .save.dirty::before{content:"● "}
+  #toast{font-size:12px;color:var(--accent2);min-height:18px;padding:6px 4px;text-align:center}
+  #toast.err{color:#ff5050}
+  /* ── Контент ── */
+  main{flex:1;overflow-y:auto;padding:18px 26px 60px}
+  section{display:none;max-width:760px}
+  section.act{display:block}
+  h2{font-size:15px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:22px 0 10px}
+  h2:first-child{margin-top:0}
+  .row{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .row label.t{width:160px;color:var(--fg)}
+  .hint{color:var(--dim);font-size:12px;margin:2px 0 10px;max-width:640px}
+  .cmds{background:var(--card);border:1px solid var(--line);border-radius:9px;
+        padding:12px 14px;margin:6px 0 14px;max-width:560px}
+  .cmds-title{font-size:12px;color:var(--dim);margin-bottom:8px}
+  .cmd{display:flex;align-items:baseline;gap:12px;padding:4px 0;
+       border-bottom:1px solid var(--line)}
+  .cmd:last-of-type{border-bottom:none}
+  .cmd b{min-width:130px;color:var(--accent2);font-weight:600}
+  .cmd span{color:var(--fg);font-size:13px}
+  .cmds-note{font-size:11px;color:var(--dim);margin-top:8px;font-style:italic}
+  select,input[type=text],input[type=number]{
+    background:var(--card);color:var(--fg);border:1px solid var(--line);
+    border-radius:7px;padding:7px 10px;font:inherit;outline:none}
+  select:focus,input:focus{border-color:var(--accent)}
+  input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent)}
+  input[type=range]{accent-color:var(--accent);width:220px}
+  .chk{display:flex;gap:9px;align-items:flex-start;margin:10px 0 2px;cursor:pointer}
+  .chk input{margin-top:2px}
+  button.b{background:var(--card);border:1px solid var(--line);color:var(--fg);
+           border-radius:7px;padding:7px 14px;cursor:pointer;font:inherit}
+  button.b:hover{border-color:var(--accent)}
+  button.b.warn{border-color:var(--danger);color:#ff7b6b}
+  kbd{background:var(--card);border:1px solid var(--line);border-bottom-width:2px;
+      border-radius:6px;padding:2px 9px;font-weight:600}
+  /* списки-редакторы */
+  table.ed{border-collapse:collapse;width:100%;margin:6px 0}
+  table.ed td{padding:3px}
+  table.ed input[type=text]{width:100%}
+  table.ed .del{color:#ff7b6b;cursor:pointer;border:none;background:none;font-size:15px}
+  .meter{height:12px;flex:1;background:var(--card);border:1px solid var(--line);
+         border-radius:7px;overflow:hidden}
+  .meter i{display:block;height:100%;width:0;background:var(--accent2);transition:width .06s}
+  /* ── История ── */
+  #histSearch{width:100%;margin-bottom:10px}
+  .day{color:var(--dim);font-size:12px;font-weight:700;margin:14px 4px 4px}
+  .ent{background:var(--card);border:1px solid var(--line);border-radius:9px;
+       padding:8px 10px;margin:5px 0;display:flex;gap:10px}
+  .ent .tm{color:var(--dim);font-size:11px;min-width:38px;padding-top:2px}
+  .ent .tx{flex:1;white-space:pre-wrap;word-break:break-word}
+  .ent .tx.hit{color:var(--hit)}
+  .ent .cp{align-self:flex-start}
+  .histbar{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .count{color:var(--dim);font-size:12px}
+  mark{background:transparent;color:var(--hit);font-weight:600}
+  /* ── Файл → текст ── */
+  .drop{border:2px dashed var(--line);border-radius:12px;padding:26px;
+        text-align:center;cursor:pointer;color:var(--dim);max-width:640px;
+        transition:border-color .15s,background .15s}
+  .drop:hover,.drop.over{border-color:var(--accent);background:rgba(13,148,136,.06)}
+  .drop.has{border-style:solid;border-color:var(--accent);color:var(--fg)}
+  .drop .ic{font-size:30px;margin-bottom:6px}
+  #fOut{width:100%;max-width:640px;min-height:150px;margin-top:12px;resize:vertical;
+        background:var(--card);color:var(--fg);border:1px solid var(--line);
+        border-radius:9px;padding:10px 12px;font:inherit;line-height:1.5}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Talker</div>
+  <button data-tab="main">Основное</button>
+  <button data-tab="audio">Аудио</button>
+  <button data-tab="text">Текст и вставка</button>
+  <button data-tab="voice">Голос и звуки</button>
+  <button data-tab="iface">Интерфейс</button>
+  <button data-tab="file">Файл → текст</button>
+  <button data-tab="history">История</button>
+  <div class="grow"></div>
+  <div id="toast"></div>
+  <button class="save" id="saveBtn">Сохранить</button>
+  <div id="about" style="font-size:11px;color:var(--dim);text-align:center;padding:8px 2px 2px">
+    <span id="ver">Talker</span> ·
+    <a href="https://cutandship.dev" target="_blank" style="color:var(--dim)">Cut &amp; Ship</a>
+  </div>
+</nav>
+<main>
+
+<section id="tab-main">
+  <h2>Горячая клавиша</h2>
+  <div class="row"><label class="t">Клавиша:</label>
+    <kbd id="hkLabel">—</kbd>
+    <button class="b" id="hkBtn">Изменить</button></div>
+  <div class="hint">Зажми её — говори — отпусти. Лучше всего клавиша-модификатор
+    (Right Alt, Right Ctrl) или F-клавиша: они не мешают обычной печати.
+    Диктовка без рук — Ctrl + Alt + Space.</div>
+
+  <h2>Распознавание речи</h2>
+  <div class="row"><label class="t">Модель:</label>
+    <select id="engine">
+      <option value="gigaam">Русский — быстрый</option>
+      <option value="whisper">Любой язык</option>
+    </select></div>
+  <div class="hint">«Русский — быстрый» (GigaAM) — только русский, но шустрее.
+    «Любой язык» (Whisper) — универсальный и точный.</div>
+  <div class="row"><label class="t">Язык:</label>
+    <select id="language">
+      <option value="">Авто</option><option value="ru">Русский</option>
+      <option value="en">English</option><option value="de">Deutsch</option>
+      <option value="fr">Français</option><option value="es">Español</option>
+      <option value="it">Italiano</option><option value="zh">中文</option>
+      <option value="ja">日本語</option>
+    </select></div>
+  <div class="row"><label class="t">Устройство:</label>
+    <select id="device">
+      <option value="cpu">Процессор</option>
+      <option value="cuda">Видеокарта NVIDIA</option>
+      <option value="auto">Авто (само)</option>
+    </select></div>
+
+  <h2>Управление голосом (старт/стоп без рук)</h2>
+  <label class="chk"><input type="checkbox" id="voice_gate">
+    <span>Голосовой старт/стоп<br>
+    <span class="hint">Управляй диктовкой голосом, не трогая клавиши.
+    Скажи «Hey Jarvis» — Talker начнёт слушать, диктуй, потом скажи стоп-команду.</span></span></label>
+
+  <div class="cmds">
+    <div class="cmds-title">Что можно говорить (когда галочка включена):</div>
+    <div class="cmd"><b>«Hey Jarvis»</b><span>начать диктовку без рук</span></div>
+    <div class="cmd"><b>«стоп-стоп»</b><span>закончить, вставить текст</span></div>
+    <div class="cmd"><b>«Талкер, стоп»</b><span>закончить, вставить текст</span></div>
+    <div class="cmd"><b>«стоп-да»</b><span>закончить, вставить <b>и нажать Enter</b> (отправить)</span></div>
+    <div class="cmds-note">Команды распознаются по речи — работают сразу, обучать ничего не нужно.</div>
+  </div>
+
+  <div class="row"><label class="t">«Hey Jarvis»:</label>
+    <input type="range" id="wake_level" min="1" max="5" step="1">
+    <span class="dim" id="wake_level_v"></span></div>
+  <div class="row"><label class="t">Стоп-команды:</label>
+    <input type="range" id="stop_level" min="1" max="5" step="1">
+    <span class="dim" id="stop_level_v"></span></div>
+  <div class="hint">Чувствительность: левее — строже (меньше ложных), правее — ловит легче.</div>
+  <label class="chk"><input type="checkbox" id="media_guard">
+    <span>Не реагировать на звук из колонок<br>
+    <span class="hint">Когда играет фильм или музыка: ложные «Hey Jarvis» от
+    чужой речи игнорируются, а тихие сегменты диктовки (утечка звука колонок
+    в микрофон) отбрасываются. Твой голос рядом с микрофоном громче — он
+    проходит.</span></span></label>
+</section>
+
+<section id="tab-audio">
+  <h2>Аудио</h2>
+  <div class="row"><label class="t">Микрофон:</label>
+    <select id="mic_index" style="flex:1"></select></div>
+  <div class="row"><label class="t">Уровень:</label>
+    <div class="meter"><i id="micBar"></i></div>
+    <button class="b" id="micTestBtn">Проверить</button></div>
+  <div class="hint">Нажми «Проверить» и скажи что-нибудь — полоска должна прыгать.
+    На время проверки «Hey Jarvis» ставится на паузу.</div>
+  <div class="row"><label class="t">Источник:</label>
+    <select id="source">
+      <option value="mic">Микрофон</option>
+      <option value="system">Звук с компьютера</option>
+    </select></div>
+  <div class="hint">«Звук с компьютера» — записать то, что слышно в колонках
+    (например, собеседника в онлайн-звонке).</div>
+  <label class="chk"><input type="checkbox" id="normalize">
+    <span>Выравнивать громкость записи (рекомендуется)</span></label>
+  <label class="chk"><input type="checkbox" id="noise_reduction">
+    <span>Шумоподавление (чуть медленнее)</span></label>
+  <label class="chk"><input type="checkbox" id="duck_other_apps">
+    <span>Приглушать другие приложения во время записи</span></label>
+  <div class="row"><label class="t">Громкость фона:</label>
+    <input type="range" id="duck_level" min="0" max="1" step="0.1">
+    <span class="dim" id="duck_level_v"></span></div>
+  <div class="hint">0 — полная тишина, 1 — без изменений.</div>
+</section>
+
+<section id="tab-text">
+  <h2>Замены (как надо ← что слышится)</h2>
+  <div class="hint">Слева — как писать правильно; справа — что могло послышаться,
+    через запятую. Например: Claude ← клод, клауд, клот.</div>
+  <table class="ed" id="replTbl"></table>
+  <button class="b" id="replAdd">+ Замена</button>
+
+  <h2>Словарь (имена, бренды, термины)</h2>
+  <div class="hint">Слова, которые Talker должен узнавать в речи. Пополняется и
+    сам, когда правишь результат через «Поправить».</div>
+  <table class="ed" id="vocabTbl"></table>
+  <button class="b" id="vocabAdd">+ Слово</button>
+
+  <h2>Обработка текста</h2>
+  <label class="chk"><input type="checkbox" id="remove_fillers">
+    <span>Убирать слова-паразиты («ну», «короче», «э-э»)</span></label>
+  <label class="chk"><input type="checkbox" id="number_format">
+    <span>Числа писать цифрами — 25 %, 2026</span></label>
+  <label class="chk"><input type="checkbox" id="mask_profanity">
+    <span>Маскировать мат — «х*й»</span></label>
+
+  <h2>Вставка текста</h2>
+  <div class="row"><label class="t">Способ вставки:</label>
+    <select id="injection_mode">
+      <option value="auto">Автоматически</option>
+      <option value="uia">Через поле ввода</option>
+      <option value="sendinput">Печатать по буквам</option>
+      <option value="clipboard">Через буфер обмена</option>
+    </select></div>
+  <div class="hint">Оставь «Автоматически» — Talker сам подберёт рабочий способ.</div>
+  <label class="chk"><input type="checkbox" id="restore_clipboard">
+    <span>Сохранять мой буфер обмена</span></label>
+  <label class="chk"><input type="checkbox" id="show_bubble">
+    <span>Показывать окошко с кнопкой «Копировать»</span></label>
+  <label class="chk"><input type="checkbox" id="smart_format">
+    <span>Поправлять заглавную букву и пробел</span></label>
+</section>
+
+<section id="tab-voice">
+  <h2>Голосовые команды (фраза → действие)</h2>
+  <label class="chk"><input type="checkbox" id="voice_commands_enabled">
+    <span>Включить голосовые команды<br>
+    <span class="hint">«talker новый абзац», «talker отправь» — выполняют
+    действие, а не печатают текст. «Вставить текст»: \n — перенос строки.
+    «Нажать клавишу»: enter, tab, ctrl+backspace…</span></span></label>
+  <table class="ed" id="vcTbl"></table>
+  <button class="b" id="vcAdd">+ Команда</button>
+
+  <h2>Звуки диктовки</h2>
+  <label class="chk"><input type="checkbox" id="snd_enabled"><span>Включить звуки</span></label>
+  <div class="row"><label class="t">Громкость:</label>
+    <input type="range" id="snd_volume" min="0" max="1" step="0.05">
+    <span class="dim" id="snd_volume_v"></span></div>
+  <div id="sndRows"></div>
+
+  <h2>История</h2>
+  <div class="row"><label class="t">Максимум записей:</label>
+    <input type="number" id="hist_max" min="0" style="width:110px"></div>
+  <div class="row"><label class="t">Хранить (дней):</label>
+    <input type="number" id="hist_days" min="0" style="width:110px">
+    <span class="hint" style="margin:0">0 = бессрочно</span></div>
+  <label class="chk"><input type="checkbox" id="hist_clear_on_quit">
+    <span>Очищать историю при выходе</span></label>
+</section>
+
+<section id="tab-iface">
+  <h2>Интерфейс</h2>
+  <div class="row"><label class="t">Тема:</label>
+    <select id="theme">
+      <option value="dark">Тёмная</option>
+      <option value="light">Светлая</option>
+      <option value="system">Как в Windows</option>
+    </select></div>
+  <div class="hint">Размер текста этого окна — Ctrl и «+» / «−», как в браузере.</div>
+
+  <h2>Кнопка на экране</h2>
+  <div class="row"><label class="t">Размер:</label>
+    <input type="range" id="widget_scale" min="0.5" max="2.5" step="0.5">
+    <span class="dim" id="widget_scale_v"></span></div>
+  <div class="row"><label class="t">Прозрачность:</label>
+    <input type="range" id="widget_opacity" min="0.2" max="1" step="0.2">
+    <span class="dim" id="widget_opacity_v"></span></div>
+  <label class="chk"><input type="checkbox" id="widget_label">
+    <span>Показывать «Слушаю», пока идёт запись</span></label>
+  <label class="chk"><input type="checkbox" id="widget_glow">
+    <span>Подсветка вокруг виджета</span></label>
+
+  <h2>Приложение</h2>
+  <label class="chk"><input type="checkbox" id="autostart">
+    <span>Запускать при старте Windows</span></label>
+</section>
+
+<section id="tab-file">
+  <h2>Транскрибация файла</h2>
+  <p class="hint">Загрузи аудио или видео — Talker распознает речь текущей моделью
+    (<b id="fEngine">…</b>) полностью офлайн. Текст попадёт в Историю и сюда.
+    Поддерживаются mp3, wav, m4a, flac, ogg, opus, mp4, mkv, webm и др.</p>
+  <input type="file" id="fInput" hidden
+    accept="audio/*,video/*,.mp3,.wav,.m4a,.flac,.ogg,.opus,.aac,.mp4,.mkv,.webm,.mov,.avi">
+  <div id="drop" class="drop">
+    <div class="ic">🎙️</div>
+    <div id="fName">Перетащи файл сюда или <b>нажми, чтобы выбрать</b></div>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <button class="b" id="fGo" disabled>Транскрибировать</button>
+    <span class="count" id="fStatus"></span>
+  </div>
+  <textarea id="fOut" placeholder="Распознанный текст появится здесь…" style="display:none"></textarea>
+  <div class="row" id="fOutBar" style="display:none">
+    <button class="b" id="fCopy">⎘ Копировать</button>
+    <button class="b" id="fClear2">Очистить</button>
+  </div>
+</section>
+
+<section id="tab-history">
+  <div class="histbar">
+    <button class="b" id="hCopyAll">⎘ Копировать всё</button>
+    <button class="b" id="hExport">↗ Экспорт</button>
+    <select id="hFmt" style="width:90px">
+      <option>txt</option><option>srt</option><option>vtt</option><option>json</option>
+    </select>
+    <button class="b warn" id="hClear">🗑 Очистить</button>
+    <span class="count" id="hCount"></span>
+  </div>
+  <input type="text" id="histSearch" placeholder="🔍 Поиск по записям… (Esc — очистить)">
+  <div id="histList"></div>
+  <div style="text-align:center;margin:12px">
+    <button class="b" id="hMore" style="display:none">Показать ещё</button>
+  </div>
+</section>
+
+</main>
+<script>
+"use strict";
+/* ── Токен: один раз из ?token=, дальше localStorage; адрес чистим ── */
+const qs = new URLSearchParams(location.search);
+if (qs.get("token")) localStorage.setItem("talker_token", qs.get("token"));
+const TOKEN = localStorage.getItem("talker_token") || "";
+const PAGE = qs.get("page") || "main";
+if (qs.get("token")) history.replaceState(null, "", location.pathname + "?page=" + PAGE);
+
+const $ = id => document.getElementById(id);
+const api = (path, opts={}) => fetch("/ui/api/" + path, {
+  ...opts,
+  headers: {"Authorization": "Bearer " + TOKEN,
+            ...(opts.body ? {"Content-Type": "application/json"} : {})},
+}).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+
+let dirty = false;
+function markDirty(){ if (!dirty){ dirty = true; $("saveBtn").classList.add("dirty"); } }
+function markClean(){ dirty = false; $("saveBtn").classList.remove("dirty"); }
+function toast(msg, err=false){
+  const t = $("toast"); t.textContent = msg; t.className = err ? "err" : "";
+  setTimeout(() => { if (t.textContent === msg) t.textContent = ""; }, 3500);
+}
+
+/* ── Вкладки ── */
+document.querySelectorAll("nav [data-tab]").forEach(b => b.onclick = () => showTab(b.dataset.tab));
+function showTab(name){
+  document.querySelectorAll("nav [data-tab]").forEach(b =>
+    b.classList.toggle("act", b.dataset.tab === name));
+  document.querySelectorAll("main section").forEach(s =>
+    s.classList.toggle("act", s.id === "tab-" + name));
+  if (name === "history") loadHistory();
+  if (name !== "audio") micTest(false);
+}
+
+/* ── Загрузка состояния ── */
+let CFG = null, PALETTE = {};
+async function boot(){
+  let st;
+  try { st = await api("state"); }
+  catch (e) { document.body.innerHTML =
+    "<p style='margin:40px;font:15px Segoe UI'>Нет связи с Talker (" + e.message +
+    "). Запусти Talker и открой настройки заново из меню.</p>"; return; }
+  CFG = st.config; PALETTE = st.sound_palette;
+  if (st.version) $("ver").textContent = "Talker v" + st.version;
+  applyTheme(CFG.ui.theme);
+
+  $("hkLabel").textContent = pretty(CFG.hotkey.key);
+  $("engine").value = CFG.stt.engine;
+  $("fEngine").textContent = CFG.stt.engine === "gigaam" ? "GigaAM" : "Whisper";
+  $("language").value = CFG.stt.language || "";
+  $("device").value = CFG.stt.device;
+  syncEngineLocks();
+  $("voice_gate").checked = CFG.output.voice_gate;
+  slider("wake_level", CFG._wake_level, v => v);
+  slider("stop_level", CFG._stop_level, v => v);
+  $("media_guard").checked = CFG.continuous.media_guard;
+
+  const micSel = $("mic_index");
+  micSel.innerHTML = "";
+  const mics = [{index:-1, name:"Системный по умолчанию"}, ...st.mics];
+  for (const m of mics){
+    const o = document.createElement("option");
+    o.value = m.index; o.textContent = m.name; micSel.appendChild(o);
+  }
+  micSel.value = String(CFG.audio.mic_index);
+  if (micSel.selectedIndex < 0) micSel.value = "-1";
+  $("source").value = CFG.audio.source;
+  $("normalize").checked = CFG.audio.normalize;
+  $("noise_reduction").checked = CFG.audio.noise_reduction;
+  $("duck_other_apps").checked = CFG.audio.duck_other_apps;
+  slider("duck_level", CFG.audio.duck_level, v => (+v).toFixed(1));
+
+  $("remove_fillers").checked = CFG.output.remove_fillers;
+  $("number_format").checked = CFG.output.number_format;
+  $("mask_profanity").checked = CFG.output.mask_profanity;
+  $("injection_mode").value = CFG.output.injection_mode;
+  $("restore_clipboard").checked = CFG.output.restore_clipboard;
+  $("show_bubble").checked = CFG.output.show_bubble;
+  $("smart_format").checked = CFG.output.smart_format;
+  $("voice_commands_enabled").checked = CFG.output.voice_commands;
+
+  edInit("replTbl", "replAdd",
+    [["to","как надо",2],["from","что слышится (через запятую)",4]],
+    CFG.replacements.map(r => ({to:r.to, from:(r.from_||[]).join(", ")})));
+  edInit("vocabTbl", "vocabAdd", [["word","слово или фраза",1]],
+    CFG.vocabulary.words.map(w => ({word:w})));
+  edInit("vcTbl", "vcAdd",
+    [["phrase","фраза",2],["action","",0],["value","значение: \\n · enter",2]],
+    CFG.voice_commands.map(v => ({phrase:v.phrase, action:v.action,
+                                  value:(v.value||"").replace(/\n/g,"\\n")})));
+
+  $("snd_enabled").checked = CFG.sounds.enabled;
+  slider("snd_volume", CFG.sounds.volume, v => Math.round(v*100) + "%");
+  buildSounds();
+
+  $("hist_max").value = CFG.history.max_entries;
+  $("hist_days").value = CFG.history.retention_days;
+  $("hist_clear_on_quit").checked = CFG.history.on_quit_clear;
+
+  $("theme").value = CFG.ui.theme;
+  slider("widget_scale", CFG.widget.scale, v => "×" + (+v).toFixed(1));
+  slider("widget_opacity", CFG.widget.opacity, v => Math.round(v*100) + "%");
+  $("widget_label").checked = CFG.widget.show_listening_label;
+  $("widget_glow").checked = CFG.widget.show_glow;
+  $("autostart").checked = st.autostart;
+
+  document.querySelector("main").addEventListener("input", markDirty);
+  $("theme").addEventListener("change", () => applyTheme($("theme").value));
+  showTab(PAGE);
+  markClean();
+}
+function applyTheme(t){
+  const light = t === "light" ||
+    (t === "system" && matchMedia("(prefers-color-scheme: light)").matches);
+  document.body.classList.toggle("light", light);
+}
+function slider(id, val, fmt){
+  const el = $(id), lbl = $(id + "_v");
+  el.value = val;
+  const upd = () => { if (lbl) lbl.textContent = fmt(el.value); };
+  el.addEventListener("input", upd); upd();
+}
+/* ── Live-предпросмотр виджета: размер/прозрачность/подпись/подсветка
+      применяются к пилюле сразу при движении ползунка, без «Сохранить» ── */
+let _wpTimer = null;
+function widgetPreview(){
+  clearTimeout(_wpTimer);
+  _wpTimer = setTimeout(() => api("widget_preview", {method:"POST",
+    body: JSON.stringify({
+      scale:   +$("widget_scale").value,
+      opacity: +$("widget_opacity").value,
+      label:    $("widget_label").checked,
+      glow:     $("widget_glow").checked,
+    })}).catch(()=>{}), 40);
+}
+["widget_scale","widget_opacity","widget_label","widget_glow"]
+  .forEach(id => $(id).addEventListener("input", widgetPreview));
+function syncEngineLocks(){
+  const giga = $("engine").value === "gigaam";
+  $("language").disabled = giga;
+  if (giga) $("language").value = "ru";
+}
+$("engine").addEventListener("change", syncEngineLocks);
+
+/* ── Хоткей: захват прямо в браузере ── */
+const CODE2KB = {AltRight:"right alt", AltLeft:"left alt",
+  ControlRight:"right ctrl", ControlLeft:"left ctrl",
+  ShiftRight:"right shift", ShiftLeft:"left shift",
+  MetaRight:"right windows", MetaLeft:"left windows",
+  Space:"space", Enter:"enter", Backspace:"backspace", Tab:"tab",
+  CapsLock:"caps lock", Insert:"insert", Delete:"delete", Home:"home",
+  End:"end", PageUp:"page up", PageDown:"page down", ContextMenu:"menu"};
+function pretty(k){
+  return (k || "—").split("+").map(p =>
+    p.trim().split(" ").map(w => w ? w[0].toUpperCase() + w.slice(1) : w).join(" ")
+  ).join(" + ");
+}
+let capturing = false;
+$("hkBtn").onclick = async () => {
+  if (capturing) return;
+  capturing = true;
+  $("hkBtn").textContent = "Нажми клавишу… (Esc — отмена)";
+  try { await api("hotkey_capture", {method:"POST", body:JSON.stringify({active:true})}); }
+  catch (e) {}
+  let pendingCtrl = null;
+  const commit = name => {
+    if (pendingCtrl){ clearTimeout(pendingCtrl); pendingCtrl = null; }
+    if (!capturing) return;
+    CFG.hotkey.key = name;
+    $("hkLabel").textContent = pretty(name);
+    markDirty();
+    if (name.length === 1)
+      toast("Буква как PTT мешает печати — лучше Right Alt / F-клавиша", true);
+    end();
+  };
+  const h = ev => {
+    ev.preventDefault(); ev.stopPropagation();
+    if (ev.code === "Escape"){ end(); return; }
+    // AltGr (= Right Alt on RU/EU layouts) fires a PHANTOM ControlLeft an instant
+    // BEFORE AltRight. Grabbing it would bind «left ctrl» and Right Alt would stop
+    // working. Defer a lone ControlLeft: if the real key follows it wins; a genuine
+    // Left Ctrl commits after the short delay.
+    if (ev.code === "ControlLeft"){
+      if (!pendingCtrl)
+        pendingCtrl = setTimeout(() => { pendingCtrl = null; commit("left ctrl"); }, 250);
+      return;
+    }
+    let name = CODE2KB[ev.code];
+    if (!name){
+      let m;
+      if ((m = ev.code.match(/^Key([A-Z])$/))) name = m[1].toLowerCase();
+      else if ((m = ev.code.match(/^Digit(\d)$/))) name = m[1];
+      else if (/^F\d+$/.test(ev.code)) name = ev.code.toLowerCase();
+      else name = (ev.key || "").toLowerCase();
+    }
+    if (name === "altgraph") name = "alt gr";   // some browsers report AltGr via ev.key
+    if (!name) { end(); return; }
+    commit(name);
+  };
+  function end(){
+    if (pendingCtrl){ clearTimeout(pendingCtrl); pendingCtrl = null; }
+    capturing = false;
+    window.removeEventListener("keydown", h, true);
+    $("hkBtn").textContent = "Изменить";
+    api("hotkey_capture", {method:"POST", body:JSON.stringify({active:false})}).catch(()=>{});
+  }
+  window.addEventListener("keydown", h, true);
+};
+
+/* ── Микрофонный тест ── */
+let micOn = false, micTimer = null;
+$("micTestBtn").onclick = () => micTest(!micOn);
+async function micTest(on){
+  if (on === micOn) return;
+  micOn = on;
+  $("micTestBtn").textContent = on ? "Стоп" : "Проверить";
+  try { await api("mictest", {method:"POST",
+        body: JSON.stringify({on, mic_index: +$("mic_index").value})}); } catch(e){}
+  clearInterval(micTimer);
+  if (on) micTimer = setInterval(async () => {
+    try {
+      const r = await api("miclevel");
+      $("micBar").style.width = Math.min(100, Math.sqrt(r.rms) * 320) + "%";
+    } catch(e){}
+  }, 90);
+  else $("micBar").style.width = "0";
+}
+addEventListener("pagehide", () => { if (micOn) navigator.sendBeacon &&
+  fetch("/ui/api/mictest?token=" + TOKEN, {method:"POST", keepalive:true,
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({on:false})}); });
+
+/* ── Простые таблицы-редакторы ── */
+const EDITORS = {};
+function edInit(tblId, addId, cols, rows){
+  const tbl = $(tblId);
+  EDITORS[tblId] = {cols};
+  const addRow = vals => {
+    const tr = document.createElement("tr");
+    for (const [key, ph, flex] of cols){
+      const td = document.createElement("td");
+      if (key === "action"){
+        const s = document.createElement("select");
+        s.innerHTML = '<option value="insert">Вставить текст</option>' +
+                      '<option value="key">Нажать клавишу</option>';
+        s.value = vals.action || "insert"; s.dataset.key = key;
+        td.appendChild(s);
+      } else {
+        const i = document.createElement("input");
+        i.type = "text"; i.placeholder = ph; i.value = vals[key] || "";
+        i.dataset.key = key;
+        td.appendChild(i);
+      }
+      if (flex) td.style.width = (flex * 18) + "%";
+      tr.appendChild(td);
+    }
+    const td = document.createElement("td");
+    const del = document.createElement("button");
+    del.className = "del"; del.textContent = "✕";
+    del.onclick = () => { tr.remove(); markDirty(); };
+    td.appendChild(del); tr.appendChild(td);
+    tbl.appendChild(tr);
+    return tr;
+  };
+  EDITORS[tblId].addRow = addRow;
+  rows.forEach(addRow);
+  $(addId).onclick = () => { addRow({}).querySelector("input").focus(); markDirty(); };
+}
+function edRows(tblId){
+  return [...$(tblId).querySelectorAll("tr")].map(tr => {
+    const o = {};
+    tr.querySelectorAll("[data-key]").forEach(el => o[el.dataset.key] = el.value.trim());
+    return o;
+  });
+}
+
+/* ── Звуки ── */
+const SND_LABELS = {start:"Старт записи", stop:"Стоп записи",
+                    pre_stop:"Перед стопом", empty:"Пустой результат"};
+function buildSounds(){
+  const host = $("sndRows"); host.innerHTML = "";
+  for (const ev of Object.keys(PALETTE)){
+    const row = document.createElement("div"); row.className = "row";
+    const lbl = document.createElement("label");
+    lbl.className = "t"; lbl.textContent = (SND_LABELS[ev] || ev) + ":";
+    const sel = document.createElement("select");
+    for (const name of PALETTE[ev]){
+      const o = document.createElement("option");
+      o.value = name; o.textContent = name; sel.appendChild(o);
+    }
+    sel.value = CFG.sounds[ev]; sel.dataset.snd = ev;
+    const btn = document.createElement("button");
+    btn.className = "b"; btn.textContent = "▶";
+    btn.onclick = () => api("sound_test", {method:"POST",
+      body: JSON.stringify({event: ev, name: sel.value})}).catch(()=>{});
+    row.append(lbl, sel, btn); host.appendChild(row);
+  }
+}
+
+/* ── Сохранение ── */
+$("saveBtn").onclick = save;
+addEventListener("keydown", e => {
+  if (e.ctrlKey && (e.code === "KeyS")){ e.preventDefault(); save(); }
+});
+async function save(){
+  const sounds = {enabled: $("snd_enabled").checked, volume: +$("snd_volume").value};
+  document.querySelectorAll("[data-snd]").forEach(s => sounds[s.dataset.snd] = s.value);
+  const payload = {
+    hotkey_key: CFG.hotkey.key,
+    engine: $("engine").value, language: $("language").value,
+    device: $("device").value,
+    voice_gate: $("voice_gate").checked,
+    wake_level: +$("wake_level").value, stop_level: +$("stop_level").value,
+    media_guard: $("media_guard").checked,
+    mic_index: +$("mic_index").value, source: $("source").value,
+    normalize: $("normalize").checked,
+    noise_reduction: $("noise_reduction").checked,
+    duck_other_apps: $("duck_other_apps").checked,
+    duck_level: +$("duck_level").value,
+    remove_fillers: $("remove_fillers").checked,
+    number_format: $("number_format").checked,
+    mask_profanity: $("mask_profanity").checked,
+    injection_mode: $("injection_mode").value,
+    restore_clipboard: $("restore_clipboard").checked,
+    show_bubble: $("show_bubble").checked,
+    smart_format: $("smart_format").checked,
+    voice_commands_enabled: $("voice_commands_enabled").checked,
+    replacements: edRows("replTbl").filter(r => r.to && r.from)
+      .map(r => ({to: r.to, from: r.from.split(",").map(s => s.trim()).filter(Boolean)})),
+    vocabulary: edRows("vocabTbl").map(r => r.word).filter(Boolean),
+    voice_commands: edRows("vcTbl").filter(r => r.phrase && r.value)
+      .map(r => ({phrase: r.phrase, action: r.action,
+                  value: r.value.replace(/\\n/g, "\n")})),
+    sounds,
+    hist_max: +$("hist_max").value, hist_days: +$("hist_days").value,
+    hist_clear_on_quit: $("hist_clear_on_quit").checked,
+    theme: $("theme").value,
+    widget_scale: +$("widget_scale").value,
+    widget_opacity: +$("widget_opacity").value,
+    widget_label: $("widget_label").checked,
+    widget_glow: $("widget_glow").checked,
+  };
+  try {
+    await api("config", {method: "POST", body: JSON.stringify(payload)});
+    await api("autostart", {method: "POST",
+                            body: JSON.stringify({enabled: $("autostart").checked})});
+    markClean();
+    toast("✓ Сохранено и применено");
+  } catch (e) {
+    toast("⚠ Не сохранилось: " + e.message, true);
+  }
+}
+
+/* ── История: грузим один раз, фильтруем мгновенно в памяти ── */
+let HIST = null, shown = 0;
+const STEP = 200;
+async function loadHistory(force=false){
+  if (HIST && !force) { renderHistory(); return; }
+  try { HIST = (await api("history")).entries.slice().reverse(); }
+  catch (e) { toast("История недоступна: " + e.message, true); return; }
+  renderHistory();
+}
+function esc(s){ const d = document.createElement("i"); d.textContent = s; return d.innerHTML; }
+function renderHistory(more=false){
+  const q = $("histSearch").value.trim().toLowerCase();
+  const list = q ? HIST.filter(e => (e.text || "").toLowerCase().includes(q)) : HIST;
+  if (!more) shown = 0;
+  const upto = Math.min(list.length, shown + STEP);
+  let html = "", prevDay = more && shown ? "_keep_" : null;
+  const frag = [];
+  for (let i = (more ? shown : 0); i < upto; i++){
+    const e = list[i];
+    const dt = new Date(e.timestamp);
+    const day = dt.toLocaleDateString("ru-RU", {day:"numeric", month:"long", year:"numeric"});
+    if (day !== prevDay && prevDay !== "_keep_"){
+      frag.push(`<div class="day">${day}</div>`); prevDay = day;
+    } else if (prevDay === "_keep_") prevDay = day;
+    const tm = dt.toLocaleTimeString("ru-RU", {hour:"2-digit", minute:"2-digit"});
+    let tx = esc(e.text || "");
+    if (q){
+      const rx = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+      tx = tx.replace(rx, m => `<mark>${m}</mark>`);
+    }
+    frag.push(`<div class="ent"><span class="tm">${tm}</span>` +
+      `<span class="tx">${tx}</span>` +
+      `<button class="b cp" data-i="${i}">⎘</button></div>`);
+  }
+  if (more) $("histList").insertAdjacentHTML("beforeend", frag.join(""));
+  else $("histList").innerHTML = frag.join("");
+  shown = upto;
+  $("hMore").style.display = upto < list.length ? "" : "none";
+  $("hCount").textContent = q ? `${list.length} из ${HIST.length}` : `${HIST.length} записей`;
+  $("histList").querySelectorAll(".cp").forEach(b => b.onclick = () => {
+    navigator.clipboard.writeText(list[+b.dataset.i].text || "");
+    b.textContent = "✓"; setTimeout(() => b.textContent = "⎘", 900);
+  });
+}
+$("histSearch").addEventListener("input", () => renderHistory());
+$("histSearch").addEventListener("keydown", e => {
+  if (e.code === "Escape"){ $("histSearch").value = ""; renderHistory(); }
+});
+$("hMore").onclick = () => renderHistory(true);
+$("hCopyAll").onclick = async () => {
+  const q = $("histSearch").value.trim().toLowerCase();
+  const list = q ? HIST.filter(e => (e.text||"").toLowerCase().includes(q)) : HIST;
+  await navigator.clipboard.writeText(list.map(e => e.text).join("\n\n"));
+  toast("Скопировано: " + list.length + " записей");
+};
+$("hExport").onclick = () =>
+  location.href = "/ui/api/history/export?fmt=" + $("hFmt").value + "&token=" + TOKEN;
+$("hClear").onclick = async () => {
+  if (!confirm("Удалить ВСЮ историю?")) return;
+  await api("history/clear", {method:"POST"});
+  loadHistory(true);
+};
+
+/* ── Файл → текст ── */
+(function fileTab(){
+  const drop = $("drop"), inp = $("fInput"), go = $("fGo"), out = $("fOut"),
+        bar = $("fOutBar"), nameEl = $("fName"), status = $("fStatus");
+  let file = null, busy = false;
+  function pick(f){
+    file = f || null;
+    if (file){
+      nameEl.innerHTML = "📎 " + esc(file.name) +
+        " <span style='color:var(--dim)'>(" + (file.size/1048576).toFixed(1) + " МБ)</span>";
+      drop.classList.add("has"); go.disabled = false;
+    } else {
+      nameEl.innerHTML = "Перетащи файл сюда или <b>нажми, чтобы выбрать</b>";
+      drop.classList.remove("has"); go.disabled = true;
+    }
+  }
+  drop.onclick = () => { if (!busy) inp.click(); };
+  inp.onchange = () => pick(inp.files[0]);
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add("over"); };
+  drop.ondragleave = () => drop.classList.remove("over");
+  drop.ondrop = e => {
+    e.preventDefault(); drop.classList.remove("over");
+    if (!busy && e.dataTransfer.files[0]) pick(e.dataTransfer.files[0]);
+  };
+  go.onclick = async () => {
+    if (!file || busy) return;
+    busy = true; go.disabled = true; status.className = "count";
+    status.textContent = "Распознаю… это может занять время";
+    const fd = new FormData(); fd.append("file", file);
+    try {
+      // raw fetch: для multipart нельзя слать Content-Type вручную (нужен boundary)
+      const r = await fetch("/ui/api/transcribe_file",
+        {method:"POST", headers:{"Authorization":"Bearer " + TOKEN}, body: fd});
+      if (!r.ok){
+        let m = r.status; try { m = (await r.json()).detail || m; } catch(_){}
+        throw new Error(m);
+      }
+      const d = await r.json();
+      out.value = d.text || "";
+      out.style.display = "block"; bar.style.display = "flex";
+      status.textContent = d.text ? ("✓ Готово: " + d.text.length + " символов")
+                                  : "Речь не распознана (пусто)";
+      if (HIST) loadHistory(true);   // освежить кэш Истории — туда уже легло
+    } catch(e){
+      status.textContent = "✗ Ошибка: " + e.message;
+    } finally {
+      busy = false; go.disabled = !file;
+    }
+  };
+  $("fCopy").onclick = () => { navigator.clipboard.writeText(out.value || ""); toast("Скопировано"); };
+  $("fClear2").onclick = () => {
+    out.value = ""; out.style.display = bar.style.display = "none";
+    status.textContent = ""; inp.value = ""; pick(null);
+  };
+})();
+
+boot();
+</script>
+</body>
+</html>

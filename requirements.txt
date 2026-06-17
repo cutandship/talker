@@ -1,0 +1,35 @@
+# Версии запинены под проверенную конфигурацию (Python 3.11, Windows).
+# «~=» = совместимые патчи/минорки; точный «==» только там, где апдейты
+# исторически ломали поведение (keyboard — заброшенная либа, хуки).
+
+# --- Ядро: запись, распознавание, вставка ---
+faster-whisper~=1.2        # Whisper (любой язык)
+onnx-asr~=0.11             # GigaAM v3 (русский, движок по умолчанию)
+onnxruntime~=1.25
+huggingface_hub            # скачивание моделей (+ прогресс в трее)
+sounddevice~=0.5
+keyboard==0.13.5
+numpy~=2.4
+pystray~=0.19
+Pillow~=12.2
+pyperclip~=1.11
+webrtcvad-wheels~=2.0
+noisereduce~=3.0
+psutil~=7.2                # киллер старых инстансов + per-app ducking
+tqdm~=4.67                 # прогресс скачивания модели
+
+# --- Окна Настроек/Истории (web_ui.html на локальном сервере) ---
+fastapi~=0.136
+uvicorn~=0.46
+python-multipart>=0.0.9    # multipart-загрузка в POST /transcribe
+
+# --- Tk-фолбэк окон + пилюля ---
+customtkinter~=5.2
+httpx~=0.28
+
+# --- Опциональные, по фичам (ленивая загрузка; ставить только если нужна фича) ---
+# Wake word («Hey Jarvis»):  pip install openwakeword
+# OCR-контекст экрана:        pip install winsdk mss
+# Митинг-диаризация:          pip install sherpa-onnx
+# Voice-to-agent (MCP):       pip install mcp
+# Parakeet (NeMo):            pip install nemo_toolkit[asr]

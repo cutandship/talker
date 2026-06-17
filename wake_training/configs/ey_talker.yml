@@ -1,0 +1,36 @@
+# «Эй, Талкер» — wake-модель (замена hey_jarvis)
+model_name: "ey_talker"
+target_phrase:
+  - "эй талкер"
+custom_negative_phrases: []
+
+n_samples: 4000
+n_samples_val: 400
+tts_batch_size: 50            # не используется (генерация — gen_samples.py)
+augmentation_batch_size: 16
+augmentation_rounds: 2        # компенсация умеренного числа RU-голосов
+
+piper_sample_generator_path: "./piper_stub"   # заглушка, см. piper_stub/
+output_dir: "./out"
+
+rir_paths:
+  - "./data/rirs"
+background_paths:
+  - "./data/background_16k"
+background_paths_duplication_rate:
+  - 1
+
+false_positive_validation_data_path: "./data/validation_set_features.npy"
+
+feature_data_files:
+  "ACAV100M_sample": "./data/acav_partial_f32.npy"
+batch_n_per_class:
+  "positive": 1024
+  "adversarial_negative": 1024
+  "ACAV100M_sample": 1024
+
+model_type: "dnn"
+layer_size: 128
+steps: 50000
+max_negative_weight: 1500
+target_false_positives_per_hour: 0.2

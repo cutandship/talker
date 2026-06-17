@@ -1,0 +1,83 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Большие бинарники (модели, колёса) ---
+models/*.gguf
+*.whl
+
+# --- Секреты и личные данные (не версионируем) ---
+config.toml
+history.json
+
+# --- Резервные копии ---
+*.bak
+*.bak_*
+config.py.bak
+config.toml.bak*
+
+# --- Runtime-данные приложения ---
+recovery/
+
+# --- Логи ---
+*.log
+@AutomationLog.txt
+crash.log
+talker.log
+
+# --- Сборка ---
+build/
+dist/
+release/
+build_out.log
+*.spec.bak
+
+# --- Кэш синтезированных звуков (концепт 36) ---
+assets/sounds/cache/
+
+# --- Patch 2: персональные роли (sidecar) ---
+patch2_roles.json
+
+# Ротация логов (RotatingFileHandler / crash.log.1)
+talker.log.*
+crash.log.*
+
+# Локальный API/веб-окна: bearer-токен
+.api_token
+
+# Wake-обучение: окружение и данные (тяжёлое, не для git)
+wake_training/venv/
+wake_training/data/
+wake_training/out/
+wake_training/tts_cache/
+wake_training/logs/
+wake_training/openWakeWord/
+wake_training/piper-sample-generator/
+
+# --- tests: временные файлы зондов и тяжёлые сырые CSV (артефакты бенчмарков) ---
+tests/_*
+tests/*_cases.csv
+
+# --- phone_connect: приватный прототип (TLS-ключ/сертификат, токен, локальные ---
+# --- адреса/QR) — НЕ коммитить ЦЕЛИКОМ (не входит в публичный релиз) ---
+phone_connect/
+
+# Wake: готовые модели и документацию — В git (исключения из правил выше)
+!wake_training/out/
+wake_training/out/*
+!wake_training/out/final/
+!wake_training/out/final/*.onnx
+
+# --- Локальный R&D-архив (спасённые наработки «для себя», не для GitHub) ---
+_attic/
+
+# --- Portable-сборка (run-from-folder, пересобирается build.py) ---
+portable/
+
+# --- Внутреннее, не для GitHub (живёт локально в 1_dev, не публикуется) ---
+# talker_lite — отдельный облачный продукт (онлайн-версия), не в опенсорс
+talker_lite/
+# внутренний журнал фиксов и инструкции AI-ассистента
+log.md
+CLAUDE.md

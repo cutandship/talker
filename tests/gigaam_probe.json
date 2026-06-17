@@ -1,0 +1,1070 @@
+{
+  "Claude": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил клод.",
+    "ru-RU-SvetlanaNeural|открой": "Открой клод.",
+    "ru-RU-DmitryNeural|я установил": "Я установил клод.",
+    "ru-RU-DmitryNeural|открой": "Открой клод."
+  },
+  "ChatGPT": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил чат.",
+    "ru-RU-SvetlanaNeural|открой": "Открой чат.",
+    "ru-RU-DmitryNeural|я установил": "Я установил чат.",
+    "ru-RU-DmitryNeural|открой": "Открой чат."
+  },
+  "GPT": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил GPT.",
+    "ru-RU-SvetlanaNeural|открой": "Открой GPT.",
+    "ru-RU-DmitryNeural|я установил": "Я установил GPT.",
+    "ru-RU-DmitryNeural|открой": "Открой GPT."
+  },
+  "Gemini": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил джимней.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Джимрней.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Джимрнай.",
+    "ru-RU-DmitryNeural|открой": "Открой Джимрнай."
+  },
+  "Copilot": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил капайд.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Capilort.",
+    "ru-RU-DmitryNeural|я установил": "Я установил капайорд.",
+    "ru-RU-DmitryNeural|открой": "Открой Capilort."
+  },
+  "Grok": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил грок.",
+    "ru-RU-SvetlanaNeural|открой": "Открой игрок.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=98ccba2aaf8c431d831192426540369d&Sec-MS-GEC=797BF2A1CD2E1B45E05E91BAF97BECA37226625EE9AA72F0B69953C95A143516&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "Открой грок."
+  },
+  "DeepSeek": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Dipsik.",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=369ec5a5cbd344a7816d30a5f623b9a6&Sec-MS-GEC=797BF2A1CD2E1B45E05E91BAF97BECA37226625EE9AA72F0B69953C95A143516&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|я установил": "Я установил Deepseak.",
+    "ru-RU-DmitryNeural|открой": "Открой Dipsic."
+  },
+  "Llama": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил ламр.",
+    "ru-RU-SvetlanaNeural|открой": "Открой ламр.",
+    "ru-RU-DmitryNeural|я установил": "Я установил ламу.",
+    "ru-RU-DmitryNeural|открой": "Открой Ламу."
+  },
+  "Mistral": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил мистрал.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Мистрал.",
+    "ru-RU-DmitryNeural|я установил": "Я установил мистрал.",
+    "ru-RU-DmitryNeural|открой": "Открой Мистрал."
+  },
+  "Midjourney": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Миджерни.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Миджерни.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Миджерни.",
+    "ru-RU-DmitryNeural|открой": "Открой Миджерни."
+  },
+  "Perplexity": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Perporxity.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Purporkity.",
+    "ru-RU-DmitryNeural|я установил": "Я установил PerPorksity.",
+    "ru-RU-DmitryNeural|открой": "Открой Purpork City."
+  },
+  "Sora": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил сору.",
+    "ru-RU-SvetlanaNeural|открой": "Открой, сора.",
+    "ru-RU-DmitryNeural|я установил": "Я установил сора.",
+    "ru-RU-DmitryNeural|открой": "Открой сора."
+  },
+  "DALL-E": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил дали.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Дали.",
+    "ru-RU-DmitryNeural|я установил": "Я установил дале.",
+    "ru-RU-DmitryNeural|открой": "Открой Дале."
+  },
+  "Stable Diffusion": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Stabral difusion.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Stable Diffusion.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Stable Diffusion.",
+    "ru-RU-DmitryNeural|открой": "Открой Stable Diffusion."
+  },
+  "Whisper": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил уиспер.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Уиспер.",
+    "ru-RU-DmitryNeural|я установил": "Я установил успер.",
+    "ru-RU-DmitryNeural|открой": "Открой Уиспе."
+  },
+  "Gemma": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Гимы.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Гима.",
+    "ru-RU-DmitryNeural|я установил": "Я установил гим.",
+    "ru-RU-DmitryNeural|открой": "Открой Гимы."
+  },
+  "Qwen": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил курн.",
+    "ru-RU-SvetlanaNeural|открой": "Открой кран.",
+    "ru-RU-DmitryNeural|я установил": "Я установил курн.",
+    "ru-RU-DmitryNeural|открой": "Открой кран."
+  },
+  "Cursor": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Кирсер.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Kirs.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Керса.",
+    "ru-RU-DmitryNeural|открой": "Открой Кирса."
+  },
+  "Windsurf": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил уйнцер.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Уайнцер.",
+    "ru-RU-DmitryNeural|я установил": "Я установил уэнсер.",
+    "ru-RU-DmitryNeural|открой": "Открой Уэнцер."
+  },
+  "Runway": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил раной.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Ranoi.",
+    "ru-RU-DmitryNeural|я установил": "Я установил раной.",
+    "ru-RU-DmitryNeural|открой": "Открой раной."
+  },
+  "ElevenLabs": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил и Levern Leps.",
+    "ru-RU-SvetlanaNeural|открой": "Открой ILENLEPS.",
+    "ru-RU-DmitryNeural|я установил": "Я установил и Levernebs.",
+    "ru-RU-DmitryNeural|открой": "Открой Ileverneps."
+  },
+  "Suno": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил суно.",
+    "ru-RU-SvetlanaNeural|открой": "Открой, суно.",
+    "ru-RU-DmitryNeural|я установил": "Я установил суно.",
+    "ru-RU-DmitryNeural|открой": "Открой суно."
+  },
+  "Replit": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил реплит.",
+    "ru-RU-SvetlanaNeural|открой": "Открой реплит.",
+    "ru-RU-DmitryNeural|я установил": "Я установил реплит.",
+    "ru-RU-DmitryNeural|открой": "Открой реплит."
+  },
+  "Notebook LM": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил ноутбук LM.",
+    "ru-RU-SvetlanaNeural|открой": "Открой ноутбук ле.",
+    "ru-RU-DmitryNeural|я установил": "Я установил ноутбук LM.",
+    "ru-RU-DmitryNeural|открой": "Открой ноутбук LM."
+  },
+  "Operator": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил оператор.",
+    "ru-RU-SvetlanaNeural|открой": "Открой, оператор.",
+    "ru-RU-DmitryNeural|я установил": "Я установил оператор.",
+    "ru-RU-DmitryNeural|открой": "Открой, оператор."
+  },
+  "OpenAI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил опеной.",
+    "ru-RU-SvetlanaNeural|открой": "Открой опеной.",
+    "ru-RU-DmitryNeural|я установил": "Я установил опены.",
+    "ru-RU-DmitryNeural|открой": "Открой опеной."
+  },
+  "Anthropic": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил энтропик.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Entropic.",
+    "ru-RU-DmitryNeural|я установил": "Я установил энтропик.",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>"
+  },
+  "DeepMind": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=f75c7797b66a4295808945f1e9e5c7a4&Sec-MS-GEC=C683138809540834ABC3E03BBB6A571D54474540285D0370705FCA94A1FC8C27&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-SvetlanaNeural|открой": "Открой Deepmint.",
+    "ru-RU-DmitryNeural|я установил": "Я установил дипмент.",
+    "ru-RU-DmitryNeural|открой": "Открой дипмент."
+  },
+  "Hugging Face": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Haging Face.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Haging Face.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Haging Face.",
+    "ru-RU-DmitryNeural|открой": "Открой Hagging Face."
+  },
+  "Stability AI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил стабелиты эй-яй.",
+    "ru-RU-SvetlanaNeural|открой": "Открой стабелиты, эй-яй.",
+    "ru-RU-DmitryNeural|я установил": "Я установил стабелиты AI.",
+    "ru-RU-DmitryNeural|открой": "Открой стабелиты эйя."
+  },
+  "Cohere": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил кахир.",
+    "ru-RU-SvetlanaNeural|открой": "Открой кахир.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=a9bb4975557248b7a8203c50dea3a4aa&Sec-MS-GEC=69257328AC0442790BEE6D16E74978248514978CCA35EE50A439A7AFF831E888&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "Открой кар."
+  },
+  "xAI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил хэй.",
+    "ru-RU-SvetlanaNeural|открой": "Открой хей.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Хаи.",
+    "ru-RU-DmitryNeural|открой": "Открой хаи."
+  },
+  "Scale AI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил skale A.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Skill Ay.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Skale Ey.",
+    "ru-RU-DmitryNeural|открой": "Открой скилл и"
+  },
+  "Mistral AI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил мистрал эй-яй.",
+    "ru-RU-SvetlanaNeural|открой": "Открой мистрал, эй-яй.",
+    "ru-RU-DmitryNeural|я установил": "Я установил мистрал Эй-ай.",
+    "ru-RU-DmitryNeural|открой": "Открой мистрал Эй-яй."
+  },
+  "Together AI": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил тригетер AI.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Tregeter A.",
+    "ru-RU-DmitryNeural|я установил": "Я установил тргет Эй.",
+    "ru-RU-DmitryNeural|открой": "Открой Trget Ray."
+  },
+  "Microsoft": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Microsoft.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Microsoft.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Microsoft.",
+    "ru-RU-DmitryNeural|открой": "Открой Microsoft."
+  },
+  "Google": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Google.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Google.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Google.",
+    "ru-RU-DmitryNeural|открой": "Открой Google."
+  },
+  "Apple": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Apple.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Apple.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Apple.",
+    "ru-RU-DmitryNeural|открой": "Открой Apple."
+  },
+  "Amazon": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Amazon.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Amazon.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Amazon.",
+    "ru-RU-DmitryNeural|открой": "Открой Amazon."
+  },
+  "Meta": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил мета.",
+    "ru-RU-SvetlanaNeural|открой": "Открой мета.",
+    "ru-RU-DmitryNeural|я установил": "Я установил мета.",
+    "ru-RU-DmitryNeural|открой": "Открой мета."
+  },
+  "Tesla": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Tesla.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Тесла.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Tesla.",
+    "ru-RU-DmitryNeural|открой": "Открой Тесла."
+  },
+  "Samsung": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Samsung.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Samsung.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Samsung.",
+    "ru-RU-DmitryNeural|открой": "Открой Samsung."
+  },
+  "Intel": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Интел.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Интел.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Intell.",
+    "ru-RU-DmitryNeural|открой": "Открой Интел."
+  },
+  "AMD": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил амт.",
+    "ru-RU-SvetlanaNeural|открой": "Открой амт.",
+    "ru-RU-DmitryNeural|я установил": "Я установил амт.",
+    "ru-RU-DmitryNeural|открой": "Открой ампт."
+  },
+  "Qualcomm": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил квалком.",
+    "ru-RU-SvetlanaNeural|открой": "Открой квалком.",
+    "ru-RU-DmitryNeural|я установил": "Я установил квалком.",
+    "ru-RU-DmitryNeural|открой": "Открой квалcком."
+  },
+  "IBM": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=d81a4dafc57d4f91a25e83a13d2d7070&Sec-MS-GEC=89D2D16263B4BF6E65BF7AE4451C39708488E9D1F67E9DA4DF7507C8FAAB1108&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-SvetlanaNeural|открой": "Открой IBM.",
+    "ru-RU-DmitryNeural|я установил": "Я установил IBM.",
+    "ru-RU-DmitryNeural|открой": "Открой IBM."
+  },
+  "Oracle": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Oracle.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Orokl.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Oracle.",
+    "ru-RU-DmitryNeural|открой": "Открой Оракл."
+  },
+  "Adobe": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил адок.",
+    "ru-RU-SvetlanaNeural|открой": "Открой адот.",
+    "ru-RU-DmitryNeural|я установил": "Я установил адоп.",
+    "ru-RU-DmitryNeural|открой": "Открой адоп."
+  },
+  "Salesforce": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>",
+    "ru-RU-SvetlanaNeural|открой": "Открой Selsy Force.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Salcy Force.",
+    "ru-RU-DmitryNeural|открой": "Открой Selserforce."
+  },
+  "Nvidia": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил NV.",
+    "ru-RU-SvetlanaNeural|открой": "Открой NV.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=04d768b1f8424e0aa5307b08897d9b02&Sec-MS-GEC=373FB502E229AB835A5EA37858353F6E6A620D287BF5620AC437FD0B569F099F&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "Открой NVidio."
+  },
+  "SpaceX": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Spisks.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Spacks.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=1367d62eba684aaab456b49ebffd65f1&Sec-MS-GEC=373FB502E229AB835A5EA37858353F6E6A620D287BF5620AC437FD0B569F099F&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>"
+  },
+  "Netflix": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Netflix.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Netflix.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=453ffb3872444d50ab9bc6a81ca93eb9&Sec-MS-GEC=C2649FD8E2D03E879A2B80161B2717B9F53986A0F4052EA6245A513E461BCA1D&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "Открой Netflix."
+  },
+  "Spotify": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил SpaterFa.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Spaterfay.",
+    "ru-RU-DmitryNeural|я установил": "Я установил SpoterFi.",
+    "ru-RU-DmitryNeural|открой": "Открой SpoterFi."
+  },
+  "PayPal": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил PayPal.",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=1fe0585b587545b5adcac473f422b261&Sec-MS-GEC=C2649FD8E2D03E879A2B80161B2717B9F53986A0F4052EA6245A513E461BCA1D&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=d5883b347d814b3785ae56f492bf475a&Sec-MS-GEC=C2649FD8E2D03E879A2B80161B2717B9F53986A0F4052EA6245A513E461BCA1D&Sec-MS-GEC-Version=1-143.0.3650.75>"
+  },
+  "Uber": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил убер.",
+    "ru-RU-SvetlanaNeural|открой": "Открой убер.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Uber.",
+    "ru-RU-DmitryNeural|открой": "Открой убе."
+  },
+  "GitHub": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил гиток.",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=9339594af95146d383593d729c7d142e&Sec-MS-GEC=C2649FD8E2D03E879A2B80161B2717B9F53986A0F4052EA6245A513E461BCA1D&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|я установил": "Я установил гит-оп.",
+    "ru-RU-DmitryNeural|открой": "Открой гей-оп."
+  },
+  "GitLab": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Gitlab.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Gitlab.",
+    "ru-RU-DmitryNeural|я установил": "Я установил гидлеп.",
+    "ru-RU-DmitryNeural|открой": "Открой GitLep."
+  },
+  "Git": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил гид.",
+    "ru-RU-SvetlanaNeural|открой": "Открой гид.",
+    "ru-RU-DmitryNeural|я установил": "Я установил гид.",
+    "ru-RU-DmitryNeural|открой": "Открой гид."
+  },
+  "Docker": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил дакр.",
+    "ru-RU-SvetlanaNeural|открой": "Открой дак.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Дакр.",
+    "ru-RU-DmitryNeural|открой": "Открой Дакру."
+  },
+  "Kubernetes": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил губернитис.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Губернитис.",
+    "ru-RU-DmitryNeural|я установил": "Я установил кубернитис.",
+    "ru-RU-DmitryNeural|открой": "Открой Кубернитис."
+  },
+  "VS Code": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Vias Code.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Vias cod.",
+    "ru-RU-DmitryNeural|я установил": "Я установил VS Code.",
+    "ru-RU-DmitryNeural|открой": "Открой Vias cod."
+  },
+  "Jira": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил джер.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Джер.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Джерро.",
+    "ru-RU-DmitryNeural|открой": "Открой Джер."
+  },
+  "Jenkins": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Дженкинс.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Дженкинс.",
+    "ru-RU-DmitryNeural|я установил": "Я установил Дженкинс.",
+    "ru-RU-DmitryNeural|открой": "Открой Дженкинс."
+  },
+  "Terraform": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=c8466d5abea046fca162bff27b488c17&Sec-MS-GEC=03AFE8EE2A39BDDD173C027AD3FE48EC344FEAFD560408B4D3E30D46D8C613C2&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|я установил": "Я установил тираfarm.",
+    "ru-RU-DmitryNeural|открой": "Открой Terafarm."
+  },
+  "Ansible": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил Enesserberl.",
+    "ru-RU-SvetlanaNeural|открой": "Открой Enissiber.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=3ea2d3d7a1784e5db620323ac899e939&Sec-MS-GEC=03AFE8EE2A39BDDD173C027AD3FE48EC344FEAFD560408B4D3E30D46D8C613C2&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [The specified network name is no longer available]>"
+  },
+  "Postman": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=808ab3a07ca3413fa041e5b5cca6fdab&Sec-MS-GEC=03AFE8EE2A39BDDD173C027AD3FE48EC344FEAFD560408B4D3E30D46D8C613C2&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-SvetlanaNeural|открой": "Открой Postman.",
+    "ru-RU-DmitryNeural|я установил": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=45d5a3b37f0843afa7b1cb9c8c838b55&Sec-MS-GEC=03AFE8EE2A39BDDD173C027AD3FE48EC344FEAFD560408B4D3E30D46D8C613C2&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|открой": "Открой Postman."
+  },
+  "Figma": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил фигмы.",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=767494f5d93043e08c363e88c9652e39&Sec-MS-GEC=AB7B9D10A7D73A2FE7D601704F1C64427040D5D06AD3D76D24CE5AFDBE4B03DC&Sec-MS-GEC-Version=1-143.0.3650.75>",
+    "ru-RU-DmitryNeural|я установил": "Я установил Figma.",
+    "ru-RU-DmitryNeural|открой": "Открой Figma."
+  },
+  "Notion": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил нашен.",
+    "ru-RU-SvetlanaNeural|открой": "Открой нашен.",
+    "ru-RU-DmitryNeural|я установил": "Я установил нашон.",
+    "ru-RU-DmitryNeural|открой": "<ERR No audio was received. Please verify that your parameters are correct.>"
+  },
+  "Slack": {
+    "ru-RU-SvetlanaNeural|я установил": "Я установил слэг.",
+    "ru-RU-SvetlanaNeural|открой": "Открой слэк.",
+    "ru-RU-DmitryNeural|я установил": "Я установил слайд.",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Discord": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Obsidian": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Linear": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Vercel": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Netlify": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "npm": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Webpack": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Vite": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Confluence": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Trello": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Sentry": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Grafana": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Prometheus": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Python": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "JavaScript": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "TypeScript": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "React": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Vue": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Angular": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Node.js": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Django": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Flask": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "FastAPI": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "PyTorch": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "TensorFlow": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Next.js": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Svelte": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Rust": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Golang": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Kotlin": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Swift": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Laravel": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Spring": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "LangChain": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Pandas": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "NumPy": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Tailwind": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "GraphQL": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "PostgreSQL": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "MySQL": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "MongoDB": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Redis": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "SQLite": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Elasticsearch": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Kafka": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "RabbitMQ": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "AWS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Azure": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "GCP": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Cloudflare": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Supabase": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Firebase": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Snowflake": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Databricks": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "ClickHouse": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Nginx": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Windows": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Linux": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Ubuntu": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Debian": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Android": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "iOS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "macOS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "YouTube": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Telegram": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "WhatsApp": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Instagram": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "TikTok": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Zoom": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Twitch": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Reddit": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "LinkedIn": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "iPhone": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "iPad": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "MacBook": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "AirPods": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "PlayStation": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Xbox": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Gmail": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Chrome": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Safari": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "Firefox": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "ИИ": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "API": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "JSON": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "HTML": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "CSS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "SQL": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "URL": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "HTTP": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "HTTPS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "SDK": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "CLI": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "GPU": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "CPU": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "RAM": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "СМИ": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "IT": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "ML": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "LLM": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "UI": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "UX": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "PDF": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "USB": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "VPN": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "DNS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "CRM": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "SaaS": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  },
+  "REST": {
+    "ru-RU-SvetlanaNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-SvetlanaNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|я установил": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>",
+    "ru-RU-DmitryNeural|открой": "<ERR Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x00000218902E1A30> [getaddrinfo failed]>"
+  }
+}
