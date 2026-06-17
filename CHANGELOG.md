@@ -4,7 +4,7 @@
 [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/);
 проект придерживается [семантического версионирования](https://semver.org/lang/ru/).
 
-## [Unreleased]
+## [0.1.0] — 2026-06-17
 
 ### Изменено
 - Подготовка к публичному релизу: README (RU + EN), бейджи, CONTRIBUTING,

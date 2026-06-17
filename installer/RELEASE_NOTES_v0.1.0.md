@@ -49,7 +49,7 @@ Windows 10/11 (64-бит), микрофон.
 
 ## 📄 Лицензия
 
-[MIT](https://github.com/cutandship/talker/blob/main/LICENSE). Модели: GigaAM (лицензия Sber), faster-whisper (MIT), шрифт Inter (SIL OFL).
+[MIT](https://github.com/cutandship/talker/blob/main/LICENSE). Модели: GigaAM (MIT), faster-whisper (MIT), шрифт Inter (SIL OFL).
 
 ---
 
