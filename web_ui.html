@@ -239,6 +239,9 @@
       <option value="clipboard">Через буфер обмена</option>
     </select></div>
   <div class="hint">Оставь «Автоматически» — Talker сам подберёт рабочий способ.</div>
+  <label class="chk"><input type="checkbox" id="copy_to_clipboard">
+    <span>Копировать текст в буфер обмена</span></label>
+  <div class="hint">Надиктованный текст остаётся в буфере — можно вставить вручную (Ctrl+V).</div>
   <label class="chk"><input type="checkbox" id="restore_clipboard">
     <span>Сохранять мой буфер обмена</span></label>
   <label class="chk"><input type="checkbox" id="show_bubble">
@@ -419,6 +422,7 @@ async function boot(){
   $("mask_profanity").checked = CFG.output.mask_profanity;
   $("injection_mode").value = CFG.output.injection_mode;
   $("restore_clipboard").checked = CFG.output.restore_clipboard;
+  $("copy_to_clipboard").checked = CFG.output.copy_to_clipboard;
   $("show_bubble").checked = CFG.output.show_bubble;
   $("smart_format").checked = CFG.output.smart_format;
   $("voice_commands_enabled").checked = CFG.output.voice_commands;
@@ -666,6 +670,7 @@ async function save(){
     mask_profanity: $("mask_profanity").checked,
     injection_mode: $("injection_mode").value,
     restore_clipboard: $("restore_clipboard").checked,
+    copy_to_clipboard: $("copy_to_clipboard").checked,
     show_bubble: $("show_bubble").checked,
     smart_format: $("smart_format").checked,
     voice_commands_enabled: $("voice_commands_enabled").checked,

@@ -112,7 +112,8 @@ import audio_backup
 from voice_commands import VoiceCommand, execute_actions, extract_commands
 from transcriber import Transcriber
 from ui import (
-    CancelUndoToast, FlowBar, HistoryWindow, LoadingWindow, PasteFallbackBubble,
+    CancelUndoToast, ClipboardToast, FlowBar, HistoryWindow, LoadingWindow,
+    PasteFallbackBubble,
     SettingsWindow, UrlTranscribeWindow, _UiScale, _apply_theme,
     _resolve_fonts,
 )
@@ -1557,6 +1558,11 @@ class App:
             except Exception:
                 logger.exception("profanity masking failed; using raw text")
 
+        # Clean text for the clipboard auto-copy — captured BEFORE the
+        # inter-dictation leading-space hack below, so a manual Ctrl+V doesn't
+        # paste a stray leading space.
+        clip_text = text
+
         # Inter-dictation spacing — add a leading space so a quick follow-up
         # dictation isn't glued to the previous insert («…капусту.1.» → «… 1.»).
         # Only when: the previous insert was recent (continuation, not a fresh
@@ -1581,6 +1587,18 @@ class App:
             # Remember the tail for inter-dictation spacing next time.
             self._last_paste_char = text[-1] if text else ""
             self._last_paste_time = time.monotonic()
+
+        # Auto-copy the dictated text to the clipboard so the user can re-paste
+        # it manually. Overrides restore_clipboard when on: cancel the restore
+        # that clipboard-mode injection scheduled, else it would wipe our text
+        # ~4 s later. Runs on success AND on "none" (clipboard is then the only
+        # way to recover the text).
+        if self.config.output.copy_to_clipboard and clip_text:
+            try:
+                pyperclip.copy(clip_text)
+                injector.cancel_clipboard_restore()
+            except Exception:
+                logger.debug("copy_to_clipboard failed", exc_info=True)
         return method
 
     def _show_bubble(self, text: str, inject_method: str = "uia") -> None:
@@ -1605,6 +1623,14 @@ class App:
         fellback = inject_method in ("none", "skipped_typing", "clipboard")
         show = mode == "always" or (mode == "on_failure" and fellback)
         if not show:
+            # Text reached the field directly → no fallback bubble. But if we
+            # auto-copied it (output.copy_to_clipboard), flash a quick, fading
+            # «✓ Скопировано» toast so the user knows Ctrl+V is armed. (When the
+            # big bubble DOES show, it already says «…скопировано», so we don't
+            # double up.) Not on skipped_typing — that path didn't copy.
+            if (self.config.output.copy_to_clipboard
+                    and inject_method != "skipped_typing"):
+                self._show_copied_toast()
             return
         if self.root and self.bubble:
             preview = text.strip()
@@ -1621,6 +1647,25 @@ class App:
             if reason in ("failed", "typing"):
                 injector.cancel_clipboard_restore()
             self.root.after(0, lambda: self.bubble.show(preview, reason=reason))
+
+    def _show_copied_toast(self) -> None:
+        """Quick, self-dismissing «✓ Скопировано в буфер обмена» confirmation
+        after an auto-copy (see _show_bubble). Marshalled onto the Tk thread."""
+        toast = getattr(self, "copied_toast", None)
+        if self.root and toast:
+            self.root.after(0, toast.show)
+
+    def _restore_pill_front(self) -> None:
+        """Re-assert the pill on top after a transient toast hides. A topmost
+        window appearing then vanishing can shuffle the Windows z-order and leave
+        the pill buried behind the active window («пилюля пропадает после
+        диктовки»). set_behind(False) re-sets -topmost + lift; it does NOT
+        deiconify, so a user-hidden pill stays hidden."""
+        if self.flowbar:
+            try:
+                self.flowbar.set_behind(False)
+            except Exception:
+                logger.debug("restore pill front failed", exc_info=True)
 
     def _on_bubble_correction(self, original: str, corrected: str) -> None:
         """User pressed «✎ Поправить» and saved a correction in the bubble.
@@ -1845,8 +1890,10 @@ class App:
         try:
             if getattr(self, "undo_toast", None):
                 self.undo_toast.prebuild()   # warm the «Вернуть» toast (cheap)
+            if getattr(self, "copied_toast", None):
+                self.copied_toast.prebuild() # warm the «Скопировано» toast (cheap)
         except Exception:
-            logger.debug("undo toast prebuild failed", exc_info=True)
+            logger.debug("toast prebuild failed", exc_info=True)
 
     def _suppress_pill(self) -> None:
         """Keep the pill on top and visible while a Settings/History window is
@@ -2339,6 +2386,14 @@ class App:
             anchor_xy=self.flowbar.anchor_xy,
             on_undo=self._undo_cancel,
             seconds=4.0,
+        )
+        # Quick «✓ Скопировано в буфер обмена» confirmation after an auto-copy.
+        # on_hidden re-lifts the pill: a transient topmost window can shuffle the
+        # z-order and leave the pill buried behind the active window otherwise.
+        self.copied_toast = ClipboardToast(
+            self.root,
+            anchor_xy=self.flowbar.anchor_xy,
+            on_hidden=self._restore_pill_front,
         )
         # Toast window — appears during PROCESSING (after user spoke) so it's
         # obvious that we're transcribing, not idle. Hidden during plain

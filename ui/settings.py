@@ -1229,6 +1229,10 @@ class SettingsWindow:
             text_color=_HINT_FG, font=_f("Segoe UI", 9), anchor="w",
             justify="left", wraplength=_s(540),
         ).pack(fill="x", padx=_s(2), pady=(0, _s(8)))
+        self._copy_clip_var = tk.BooleanVar(value=self._cfg.output.copy_to_clipboard)
+        _chk("Копировать текст в буфер обмена",
+             "Надиктованный текст остаётся в буфере обмена — можно вставить его "
+             "вручную через Ctrl+V.", self._copy_clip_var)
         self._restore_var = tk.BooleanVar(value=self._cfg.output.restore_clipboard)
         _chk("Сохранять мой буфер обмена",
              "Talker иногда вставляет через копирование. С этой галочкой он "
@@ -1815,6 +1819,7 @@ class SettingsWindow:
             cfg.stt.model = m
 
         cfg.output.restore_clipboard = self._restore_var.get()
+        cfg.output.copy_to_clipboard = self._copy_clip_var.get()
         cfg.output.show_bubble = self._bubble_var.get()
         cfg.output.smart_format = self._smart_format_var.get()
         cfg.output.voice_commands = self._vc_enabled_var.get()

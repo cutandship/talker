@@ -126,6 +126,9 @@ class SttConfig:
 @dataclass
 class OutputConfig:
     restore_clipboard: bool = True
+    copy_to_clipboard: bool = True      # после вставки оставлять надиктованный
+                                        # текст в буфере обмена (для ручного Ctrl+V).
+                                        # Перекрывает restore_clipboard, когда вкл.
     show_bubble: bool = False           # legacy "always show"
     bubble_mode: str = "on_failure"     # "always" | "on_failure" | "off"
     injection_mode: str = "auto"   # "auto" | "uia" | "sendinput" | "clipboard"
@@ -378,6 +381,7 @@ def save_config(cfg: Config) -> None:
         "",
         "[output]",
         f'restore_clipboard = {"true" if cfg.output.restore_clipboard else "false"}',
+        f'copy_to_clipboard = {"true" if cfg.output.copy_to_clipboard else "false"}',
         f'show_bubble       = {"true" if cfg.output.show_bubble else "false"}',
         f'bubble_mode       = "{esc(cfg.output.bubble_mode)}"',
         f'injection_mode    = "{esc(cfg.output.injection_mode)}"',

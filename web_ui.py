@@ -322,6 +322,7 @@ def _apply_ui_config(app: "App", p: dict) -> "object":
 
     o = cfg.output
     o.restore_clipboard = fbool("restore_clipboard", o.restore_clipboard)
+    o.copy_to_clipboard = fbool("copy_to_clipboard", o.copy_to_clipboard)
     o.show_bubble = fbool("show_bubble", o.show_bubble)
     o.smart_format = fbool("smart_format", o.smart_format)
     o.voice_commands = fbool("voice_commands_enabled", o.voice_commands)

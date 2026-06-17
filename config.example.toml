@@ -19,6 +19,7 @@ compute_type = "int8"
 cpu_threads  = 0                        # 0 = авто
 
 [output]
+copy_to_clipboard = true          # оставлять надиктованный текст в буфере (ручной Ctrl+V)
 restore_clipboard = true
 injection_mode    = "clipboard"   # clipboard | sendinput | uia | auto
 remove_fillers    = true          # вырезать «ну», «э-э»

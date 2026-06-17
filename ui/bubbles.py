@@ -489,6 +489,107 @@ class CancelUndoToast:
         self._win.geometry(f"+{x}+{y}")
 
 
+class ClipboardToast:
+    """Tiny self-dismissing «✓ Скопировано в буфер обмена» toast, shown after an
+    auto-copy (output.copy_to_clipboard) when the dictated text reached the field
+    directly — so no fallback bubble pops, but the user still gets a quick, fading
+    confirmation that Ctrl+V is armed. Holds ~1.1 s, then fades out fast. Reuses
+    the pill anchor so it appears just above the capsule."""
+
+    _BG = "#1a1a1a"
+    _BORDER = "#2c2c2c"
+    _ACCENT = "#00d4aa"
+    _ALPHA = 0.97
+    _HOLD_MS = 1100          # fully visible …
+    _STEP_MS = 50            # … then fade out in _STEP_MS ticks
+
+    def __init__(self, root: tk.Tk, anchor_xy: Callable[[], tuple[int, int]],
+                 text: str = "Скопировано в буфер обмена",
+                 on_hidden: Callable[[], None] | None = None) -> None:
+        self._root = root
+        self._anchor_xy = anchor_xy
+        self._text = text
+        self._on_hidden = on_hidden
+        self._win: tk.Toplevel | None = None
+        self._after: str | None = None
+
+    def _build(self) -> None:
+        w = tk.Toplevel(self._root)
+        self._win = w
+        w.overrideredirect(True)
+        w.attributes("-topmost", True)
+        w.configure(bg=self._BORDER)
+        body = tk.Frame(w, bg=self._BG)
+        body.pack(fill="both", expand=True, padx=1, pady=1)
+        _tsz = max(8, int(round(8 * _UiScale.value)))
+        tk.Label(body, text=f"✓ {self._text}", bg=self._BG, fg=self._ACCENT,
+                 font=(common._FONT_FAMILY, _tsz, "bold")).pack(
+                     padx=_s(10), pady=(_s(3), _s(4)))
+        _rounded_corners(w)
+
+    def prebuild(self) -> None:
+        """Create the Toplevel up-front (hidden) so the first show() doesn't pay
+        the window-creation + rounded-corners cost with a visible stutter."""
+        if self._win is None or not self._win.winfo_exists():
+            self._build()
+            try: self._win.withdraw()
+            except Exception: logger.debug("prebuild: suppressed", exc_info=True)
+
+    def show(self) -> None:
+        if self._win is None or not self._win.winfo_exists():
+            self._build()
+        if self._after:
+            try: self._win.after_cancel(self._after)
+            except Exception: logger.debug("show: suppressed", exc_info=True)
+            self._after = None
+        self._position()
+        try: self._win.attributes("-alpha", self._ALPHA)
+        except Exception: logger.debug("show alpha: suppressed", exc_info=True)
+        self._win.deiconify()
+        self._win.lift()
+        self._win.attributes("-topmost", True)
+        self._after = self._win.after(self._HOLD_MS, lambda: self._fade(self._ALPHA))
+
+    def _fade(self, alpha: float) -> None:
+        if self._win is None or not self._win.winfo_exists():
+            return
+        alpha -= 0.16                     # ~6 ticks ≈ 300 ms fade
+        if alpha <= 0:
+            self.hide()
+            return
+        try: self._win.attributes("-alpha", alpha)
+        except Exception: logger.debug("_fade: suppressed", exc_info=True)
+        self._after = self._win.after(self._STEP_MS, lambda: self._fade(alpha))
+
+    def hide(self) -> None:
+        if self._after:
+            try: self._win.after_cancel(self._after)
+            except Exception: logger.debug("hide: suppressed", exc_info=True)
+            self._after = None
+        if self._win and self._win.winfo_exists():
+            self._win.withdraw()
+        # A topmost window appearing then vanishing can shuffle the Windows
+        # topmost z-order and leave the pill buried behind the active window.
+        # Let the owner re-assert the pill on top once we're gone.
+        if self._on_hidden:
+            try: self._on_hidden()
+            except Exception: logger.debug("on_hidden: suppressed", exc_info=True)
+
+    def _position(self) -> None:
+        ax, ay = self._anchor_xy()
+        self._win.update_idletasks()
+        w = self._win.winfo_reqwidth()
+        h = self._win.winfo_reqheight()
+        sw = self._win.winfo_screenwidth()
+        sh = self._win.winfo_screenheight()
+        x = max(8, min(ax, sw - w - 8))
+        y = ay - h - _s(8)            # above the pill …
+        if y < 8:
+            y = ay + _s(44)           # … or below if there's no room
+        y = max(8, min(y, sh - h - 8))
+        self._win.geometry(f"+{x}+{y}")
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # HistoryWindow – main panel with dictation history
 # ══════════════════════════════════════════════════════════════════════════════
