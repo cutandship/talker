@@ -7,13 +7,25 @@ initial_prompt/biasing (словарь концепта 05 на нём не де
 from __future__ import annotations
 
 import logging
+import os
+import sys
 import threading
+from pathlib import Path
 
 import numpy as np
 
 from constants import SAMPLE_RATE
 
 logger = logging.getLogger(__name__)
+
+
+def _bundled_model_dir(model_name: str) -> "Path | None":
+    """Plain bundled model folder next to the exe (build.py --bundle-model writes
+    models/<name>). Loading via this path keeps onnx_asr fully OFFLINE — no HF
+    cache, no snapshot symlinks (which don't survive a copy to another PC)."""
+    base = Path(sys.executable).parent if getattr(sys, "frozen", False) else Path(__file__).parent
+    d = base / "models" / model_name
+    return d if d.is_dir() else None
 
 # GigaAM is trained/profiled on speech segments up to 30 s (onnx_asr's
 # profile_max_shapes: waveform_len_ms=30_000, opt=20_000). Feeding a longer
@@ -44,12 +56,19 @@ class GigaamEngine:
     def _get(self):
         with self._load_lock:
             if self._model is None:
-                import onnx_asr  # ленивый: тянет onnxruntime + качает веса
+                import onnx_asr  # ленивый: onnxruntime (+ качает веса, если не вшито)
+                local = _bundled_model_dir(self._model_name)
                 try:
-                    self._model = onnx_asr.load_model(
-                        self._model_name, quantization=self._quantization)
+                    if local is not None:
+                        # Вшитая плоская папка → офлайн через path=, без сети.
+                        self._model = onnx_asr.load_model(
+                            self._model_name, str(local), quantization=self._quantization)
+                    else:
+                        self._model = onnx_asr.load_model(
+                            self._model_name, quantization=self._quantization)
                     logger.info(
-                        f"GigaAM loaded: {self._model_name} (q={self._quantization})")
+                        f"GigaAM loaded: {self._model_name} "
+                        f"(q={self._quantization}, local={local is not None})")
                 except Exception as e:
                     # Не у всех вариантов (напр. некоторых v3) есть int8-веса —
                     # падать нельзя. Грузим в полной точности как фолбэк.
@@ -57,7 +76,9 @@ class GigaamEngine:
                         logger.warning(
                             f"GigaAM {self._model_name} q={self._quantization} "
                             f"failed ({e}); retrying without quantization")
-                        self._model = onnx_asr.load_model(self._model_name)
+                        self._model = (onnx_asr.load_model(self._model_name, str(local))
+                                       if local is not None
+                                       else onnx_asr.load_model(self._model_name))
                         logger.info(f"GigaAM loaded: {self._model_name} (q=none)")
                     else:
                         raise

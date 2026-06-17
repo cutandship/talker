@@ -130,17 +130,17 @@ class OutputConfig:
     bubble_mode: str = "on_failure"     # "always" | "on_failure" | "off"
     injection_mode: str = "auto"   # "auto" | "uia" | "sendinput" | "clipboard"
     streaming: bool = False        # вставлять текст по ходу речи (см. _BgJob)
-    punctuation_fallback: bool = True   # локальная пунктуация (GigaAM v3 и так пунктуирует)
+    punctuation_fallback: bool = False  # GigaAM v3 пунктуирует сама → фолбэк OFF по умолчанию
     remove_fillers: bool = True    # детерминированный скрипт-стриппер паразитов и
                                    # звуков-заминок («ну/короче/типа», «э-э/эм/мм») —
                                    # работает без ИИ (filler.py); ничего не
                                    # выдумывает, только режет.
-    smart_format: bool = True      # читать контекст у курсора, фиксить регистр/пробелы
-    backtrack: bool = True         # эвристика «нет, я имел в виду …»
+    smart_format: bool = False     # OFF: GigaAM v3 пишет чисто; контекст-фиксы давали глюки
+    backtrack: bool = False        # OFF по умолчанию: эвристика «нет, я имел в виду …» переправляла лишнее
     voice_commands: bool = True    # inline команды («talker новый абзац»)
     voice_commands_standalone_tail: bool = False   # opt-in: команда без маркера в конце
     voice_gate: bool = False       # hands-free «Hey Jarvis … стоп-стоп» (continuous)
-    number_format: bool = True        # 24 — числа цифрами (локальный itn.py)
+    number_format: bool = False       # 24 — числа цифрами (itn.py); OFF: мисфайрит на GigaAM v3
     paste_last_hotkey: str = ""       # 33 — «вставить последний транскрипт»
     scratchpad_hotkey: str = ""       # 33 — открыть скретчпад последних транскриптов
     mask_profanity: bool = False      # маскировать мат («хуй» → «х*й») перед вставкой

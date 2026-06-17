@@ -75,11 +75,17 @@ def _kill_other_talker_instances() -> None:
 
 _kill_other_talker_instances()
 
-# Portable mode: if .cache exists next to the exe, use it for the bundled models.
+# Portable mode: a bundled `models/` folder means we ship offline — gigaam_engine
+# loads it locally via path=, and we keep HF off the network entirely.
 _EXE_DIR = Path(sys.executable).parent if getattr(sys, "frozen", False) else Path(__file__).parent
+_bundled_models = _EXE_DIR / "models"
 _local_cache = _EXE_DIR / ".cache"
 if _local_cache.exists():
     os.environ.setdefault("HF_HOME", str(_local_cache))
+if _bundled_models.exists():
+    # Defensive: even if some path falls back to HF, never hit the net (model is local).
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+    os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
 if getattr(sys, "frozen", False):
     # The windowed exe has no stdout/stderr, so huggingface_hub's tqdm progress
     # bar crashes ('NoneType' object has no attribute 'write') while resolving the
@@ -723,6 +729,15 @@ class App:
                             f"{'DOWN' if event.event_type==keyboard.KEY_DOWN else 'UP'} "
                             f"sc={getattr(event,'scan_code',None)}")
 
+            # TEMP DIAG (modifiers only, low-noise): see how right-alt/AltGr is
+            # reported so PTT matching can be confirmed/corrected. Remove once PTT
+            # on right-alt is verified working.
+            if ("alt" in name or "ctrl" in name or "menu" in name
+                    or getattr(event, "scan_code", None) == 541):
+                logger.info(f"MODDIAG {name!r} "
+                            f"{'DOWN' if event.event_type==keyboard.KEY_DOWN else 'UP'} "
+                            f"sc={getattr(event,'scan_code',None)}")
+
             # "User is typing" timestamp — anything that isn't a pure modifier
             # / lock counts. PTT release also resets it after the recording
             # ends (see _on_release) so PTT itself doesn't poison the signal.
@@ -763,7 +778,14 @@ class App:
             # physical key (right alt ↔ alt gr; right ctrl on some layouts).
             # Match the whole alias group so all spellings count.
             aliases = self._ptt_aliases(target)
+            sc = getattr(event, "scan_code", None)
             match = (name in aliases) if aliases else (name == target)
+            # AltGr layouts (RU): the `keyboard` lib swallows the real right-alt and
+            # emits only a synthetic LEFT-CTRL edge (scan_code 541). Treat that edge
+            # as the PTT key when right-alt is the target. Real left ctrl is sc 29,
+            # not 541, so this won't fire on a normal ctrl press.
+            if not match and target in self._RIGHT_ALT_ALIASES and sc == 541:
+                match = True
             if not match:
                 return
 

@@ -20,6 +20,8 @@ HERE = Path(__file__).parent
 
 # HF repo of the default GigaAM v3 model (onnx_asr downloads it from here).
 _GIGAAM_REPO_DIR = "models--istupakov--gigaam-v3-onnx"
+# onnx_asr model id == the bundled plain-folder name under <dist>/models/.
+_GIGAAM_MODEL_NAME = "gigaam-v3-e2e-rnnt"
 
 
 def find_package_dir(name: str) -> Path:
@@ -39,24 +41,35 @@ def _dir_size_mb(p: Path) -> float:
 
 
 def bundle_gigaam(dist: Path) -> None:
-    """Copy the cached GigaAM v3 model into the portable folder.
+    """Ship GigaAM v3 as a PLAIN folder of real files in <dist>/models/<name>.
 
-    Runtime (main.py) sets HF_HOME = <exe dir>/.cache when that folder exists, so
-    HF looks in <exe dir>/.cache/hub. We copy there. symlinks=False resolves HF's
-    blob symlinks into real files → the copy is self-contained on another PC.
+    gigaam_engine loads it OFFLINE via onnx_asr.load_model(name, path=...), so we
+    avoid the HF cache's snapshot SYMLINKS — those don't survive a plain copy/zip
+    to an end-user Windows box and silently trigger a full re-download.
     """
-    src = _hf_hub() / _GIGAAM_REPO_DIR
-    if not src.exists():
-        print(f"\n[!] GigaAM model not in HF cache ({src}).")
+    src_repo = _hf_hub() / _GIGAAM_REPO_DIR
+    ref_file = src_repo / "refs" / "main"
+    ref = ref_file.read_text().strip() if ref_file.exists() else None
+    snap = (src_repo / "snapshots" / ref) if ref else None
+    if not (snap and snap.exists()):
+        print(f"\n[!] GigaAM snapshot not found under {src_repo}.")
         print("    Launch Talker once with engine=gigaam so it downloads, then re-run build.py.")
         return
-    dest = dist / ".cache" / "hub" / src.name
-    print(f"\nBundling GigaAM v3:  {src.name}  ({_dir_size_mb(src):.0f} MB)…")
+    needed = ["config.json",
+              "v3_e2e_rnnt_encoder.int8.onnx", "v3_e2e_rnnt_decoder.int8.onnx",
+              "v3_e2e_rnnt_joint.int8.onnx", "v3_e2e_rnnt_vocab.txt"]
+    dest = dist / "models" / _GIGAAM_MODEL_NAME
     if dest.exists():
         shutil.rmtree(dest)
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(src, dest, symlinks=False, ignore_dangling_symlinks=True)
-    print("GigaAM bundled.")
+    dest.mkdir(parents=True, exist_ok=True)
+    for name in needed:
+        s = snap / name
+        if not s.exists():
+            print(f"[!] missing {name} in snapshot — aborting model bundle")
+            shutil.rmtree(dest)
+            return
+        shutil.copyfile(s, dest / name)   # copyfile follows symlinks → real bytes
+    print(f"GigaAM bundled (plain folder, {_dir_size_mb(dest):.0f} MB): {dest}")
 
 
 def main() -> None:
