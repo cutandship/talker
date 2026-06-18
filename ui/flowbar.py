@@ -706,8 +706,11 @@ class FlowBar:
                 except Exception:
                     rms = 0.0
                 # Perceptual (sqrt) mapping → quiet vs loud speech both visible.
-                # Multiplier boosted (3.2 → 5.5) so the bars jump higher/livelier.
-                lvl = math.sqrt(max(0.0, rms)) * 5.5
+                # Multiplier 3.6: high enough to be lively, low enough that normal
+                # speech (rms ~0.02–0.07) maps to ~0.5–0.95 instead of pinning at
+                # the 1.0 cap — at 5.5 every word saturated → a flat «wall» with no
+                # sense of volume or tempo. Keep it in the responsive range.
+                lvl = math.sqrt(max(0.0, rms)) * 3.6
                 # Голубой (listening, Ctrl+Alt+Space) прыгает на всю высоту, как
                 # красный (recording, PTT) — раньше listening резался вдвое (0.5).
                 cap = 1.0
