@@ -53,3 +53,19 @@ Name: "{userstartup}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: st
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#MyAppName}}"; Flags: nowait postinstall skipifsilent
+
+[UninstallDelete]
+; Снести ВСЁ, что приложение создаёт в рантайме (config.toml, talker.log/crash.log,
+; .api_token, .duck_restore, recovery\, скачанный Whisper в models\...) И САМУ
+; ПАПКУ — без этого [Files] оставляет рантайм-мусор и каталог не удаляется.
+Type: filesandordirs; Name: "{app}"
+
+[Code]
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+  if CurUninstallStep = usUninstall then
+    // Автозапуск, если его включали в Настройках (HKCU\...\Run\Talker) — реестр
+    // [Files]/[UninstallDelete] не трогают, чистим вручную.
+    RegDeleteValue(HKEY_CURRENT_USER,
+      'Software\Microsoft\Windows\CurrentVersion\Run', 'Talker');
+end;
