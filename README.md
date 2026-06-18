@@ -12,8 +12,7 @@
 классом: распознаёт [GigaAM v3](https://github.com/salute-developers/GigaAM)
 (лучшая открытая модель для русской речи), любой другой язык — Whisper.
 
-<!-- Демо: запиши 5-сек GIF (Right Alt → диктовка → текст), положи в assets/demo.gif и раскомментируй: -->
-<!-- ![Демо Talker](assets/demo.gif) -->
+![Демо Talker](assets/demo.gif)
 
 ## Скачать
 

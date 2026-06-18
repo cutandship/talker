@@ -12,8 +12,7 @@ ever leaves your machine. Russian is first-class via
 [GigaAM v3](https://github.com/salute-developers/GigaAM) (the best open model for
 Russian speech); any other language goes through Whisper.
 
-<!-- Demo: record a 5-sec GIF (Right Alt → dictate → text), drop it at assets/demo.gif and uncomment: -->
-<!-- ![Talker demo](assets/demo.gif) -->
+![Talker demo](assets/demo.gif)
 
 ## Download
 
