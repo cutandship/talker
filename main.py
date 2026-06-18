@@ -379,6 +379,10 @@ class App:
         self.bubble: PasteFallbackBubble | None = None
         self.cleaning_enabled = True
         self._overlay_visible = True
+        # Whisper download state (user-triggered «Скачать Whisper» button). The
+        # web UI polls this via /ui/api/state to drive the button label.
+        self._whisper_dl = {"downloading": False, "pct": 0, "error": ""}
+        self._whisper_dl_lock = threading.Lock()
 
         self._state = State.LOADING
         self._icons = {s: _make_icon(c) for s, c in _COLORS.items()}
@@ -504,35 +508,89 @@ class App:
         repo. Mirror that here for the cache probe / pre-download."""
         return model if "/" in model else f"Systran/faster-whisper-{model}"
 
+    @staticmethod
+    def _whisper_model_dir(repo: str) -> "Path":
+        """Plain folder where we materialise the Whisper model as REAL files
+        (next to the exe, beside the bundled GigaAM). Loading from here avoids the
+        HF cache's snapshot symlinks, which the installed exe can't traverse on
+        some Windows machines (WinError 448)."""
+        from pathlib import Path
+        base = (Path(sys.executable).parent if getattr(sys, "frozen", False)
+                else Path(__file__).parent)
+        return base / "models" / repo.replace("/", "__")
+
+    def _whisper_local_path(self, repo: str) -> "str | None":
+        """The plain model folder IF it holds a complete download, else None (→ the
+        user must press «Скачать Whisper»)."""
+        d = self._whisper_model_dir(repo)
+        return str(d) if (d / "model.bin").exists() and (d / "config.json").exists() else None
+
     def _predownload_whisper(self, repo: str) -> None:
-        """Download the model into the HF cache BEFORE constructing the engine,
-        streaming percent into the tray title — otherwise a 1.5 GB first run
-        looks like a hang (pill spins, zero feedback). Any failure just falls
-        through: WhisperModel() retries the download itself."""
+        """Download the Whisper model into a PLAIN folder (real files, no HF-cache
+        snapshot symlinks → no WinError 448 on the installed exe), streaming
+        percent into the tray title and into self._whisper_dl (the «Скачать
+        Whisper» button polls it). Raises on failure so the caller can report it."""
         app = self
+        from huggingface_hub import snapshot_download
+        from tqdm import tqdm as _tqdm
 
-        try:
-            from huggingface_hub import snapshot_download
-            from tqdm import tqdm as _tqdm
+        class _TrayTqdm(_tqdm):
+            _last_pct = -1
 
-            class _TrayTqdm(_tqdm):
-                _last_pct = -1
+            def update(self, n=1):
+                super().update(n)
+                # Only the big weight files are worth narrating (the repo
+                # also has tiny json/tokenizer files that flicker 0→100).
+                if not self.total or self.total < 50_000_000:
+                    return
+                pct = int(self.n * 100 / self.total)
+                if pct != _TrayTqdm._last_pct:
+                    _TrayTqdm._last_pct = pct
+                    app._tray_progress(pct)
+                    with app._whisper_dl_lock:
+                        app._whisper_dl["pct"] = pct
 
-                def update(self, n=1):
-                    super().update(n)
-                    # Only the big weight files are worth narrating (the repo
-                    # also has tiny json/tokenizer files that flicker 0→100).
-                    if not self.total or self.total < 50_000_000:
-                        return
-                    pct = int(self.n * 100 / self.total)
-                    if pct != _TrayTqdm._last_pct:
-                        _TrayTqdm._last_pct = pct
-                        app._tray_progress(pct)
+        snapshot_download(repo, local_dir=str(self._whisper_model_dir(repo)),
+                          tqdm_class=_TrayTqdm)
 
-            snapshot_download(repo, tqdm_class=_TrayTqdm)
-        except Exception:
-            logger.warning("Model pre-download failed — engine will retry",
-                           exc_info=True)
+    def start_whisper_download(self) -> bool:
+        """User-triggered Whisper download (the «Скачать Whisper» button). Runs in
+        a worker thread; progress lives in self._whisper_dl + the tray title. When
+        done, activates the engine if Whisper is the selected one. Returns False if
+        a download is already running."""
+        with self._whisper_dl_lock:
+            if self._whisper_dl["downloading"]:
+                return False
+            self._whisper_dl = {"downloading": True, "pct": 0, "error": ""}
+        repo = self._whisper_repo_id(self.config.stt.model)
+
+        def _work() -> None:
+            try:
+                self._notify(f"Скачиваю {self.config.stt.model}… можно работать дальше.")
+                self._predownload_whisper(repo)
+                with self._whisper_dl_lock:
+                    self._whisper_dl = {"downloading": False, "pct": 100, "error": ""}
+                self._notify("Whisper скачан — готов к работе.")
+                if self.config.stt.engine == "whisper":
+                    self._set_state(State.LOADING)
+                    self._load_model()
+                    self._set_state(State.IDLE)
+            except Exception as e:
+                logger.warning("Whisper download failed", exc_info=True)
+                with self._whisper_dl_lock:
+                    self._whisper_dl = {"downloading": False, "pct": 0, "error": str(e)}
+                self._notify("Не удалось скачать Whisper — см. лог.")
+
+        threading.Thread(target=_work, name="whisper-dl", daemon=True).start()
+        return True
+
+    def whisper_status(self) -> dict:
+        """Snapshot for the web UI button: downloaded? downloading? percent?"""
+        repo = self._whisper_repo_id(self.config.stt.model)
+        with self._whisper_dl_lock:
+            dl = dict(self._whisper_dl)
+        dl["downloaded"] = self._whisper_local_path(repo) is not None
+        return dl
 
     def _tray_progress(self, pct: int) -> None:
         if self.icon:
@@ -545,29 +603,24 @@ class App:
         try:
             cfg = self.config.stt
             acfg = self.config.audio
-            # Probe HF cache so we can tell the user if this run will go through
-            # a slow first-time download (~150 MB for small, ~1.5 GB for
-            # large-v3-turbo). The model still loads in *this background
-            # thread* — the UI stays responsive throughout.
+            # Whisper loads from a PLAIN folder we materialise on the «Скачать
+            # Whisper» button (real files, no HF-cache symlinks → no WinError 448).
+            # We do NOT auto-download here: if it isn't there yet, tell the user to
+            # press the button and leave the engine unbuilt (GigaAM is the bundled
+            # default, so this only happens if Whisper was selected first).
+            model_path = cfg.model
             if cfg.engine == "whisper":
-                from pathlib import Path
                 repo = self._whisper_repo_id(cfg.model)
-                hf_home = Path(os.environ.get("HF_HOME") or
-                               Path.home() / ".cache" / "huggingface")
-                # HF hub layout: models--{org}--{name}. The old probe assumed
-                # the Systran pattern for every model, so namespaced ids always
-                # looked «not cached» → ложное «Скачиваю модель…» на каждый старт.
-                cache_dir = hf_home / "hub" / ("models--" + repo.replace("/", "--"))
-                if not cache_dir.exists():
-                    logger.info(f"Model {repo!r} not cached — downloading now")
-                    self._notify(
-                        f"Скачиваю модель {cfg.model}… "
-                        "Можно работать дальше — после загрузки активируется."
-                    )
-                    self._predownload_whisper(repo)
+                local = self._whisper_local_path(repo)
+                if local is None:
+                    logger.info(f"Whisper {repo!r} not downloaded — awaiting button")
+                    self._notify("Whisper не скачан. Настройки → «Скачать Whisper».")
+                    self._set_state(State.IDLE)
+                    return
+                model_path = local
 
             self.transcriber = Transcriber(
-                model_size=cfg.model,
+                model_size=model_path,
                 language=cfg.language or None,
                 normalize=acfg.normalize,
                 noise_reduction=acfg.noise_reduction,

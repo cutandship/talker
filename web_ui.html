@@ -136,6 +136,10 @@
     </select></div>
   <div class="hint">«Русский — быстрый» (GigaAM) — только русский, но шустрее.
     «Любой язык» (Whisper) — универсальный и точный.</div>
+  <div class="row" style="margin-top:6px">
+    <button class="b" id="dlWhisper" type="button">Скачать Whisper</button>
+    <span id="dlWhisperStatus" class="hint" style="margin-left:8px"></span>
+  </div>
   <div class="row"><label class="t">Язык:</label>
     <select id="language">
       <option value="">Авто</option><option value="ru">Русский</option>
@@ -368,6 +372,42 @@ function toast(msg, err=false){
   setTimeout(() => { if (t.textContent === msg) t.textContent = ""; }, 3500);
 }
 
+/* ── Скачать Whisper ── */
+let _whPoll = null;
+function updateWhisperBtn(w){
+  const btn = $("dlWhisper"), st = $("dlWhisperStatus");
+  if (!btn) return;
+  w = w || {};
+  if (w.downloading){
+    btn.disabled = true; btn.textContent = "Скачивание… " + (w.pct || 0) + "%";
+    st.textContent = "идёт загрузка — можно работать дальше";
+  } else if (w.downloaded){
+    btn.disabled = false; btn.textContent = "Перекачать Whisper";
+    st.textContent = "✓ скачан";
+  } else {
+    btn.disabled = false; btn.textContent = "Скачать Whisper";
+    st.textContent = w.error ? "ошибка — см. лог" : "~1.6 ГБ, для других языков";
+  }
+}
+async function pollWhisper(){
+  try {
+    const st = await api("state");
+    updateWhisperBtn(st.whisper);
+    if (st.whisper && !st.whisper.downloading){ clearInterval(_whPoll); _whPoll = null; }
+  } catch(_){}
+}
+function bindWhisperBtn(){
+  const btn = $("dlWhisper");
+  if (!btn) return;
+  btn.onclick = async () => {
+    try {
+      const r = await api("download_whisper", {method:"POST"});
+      updateWhisperBtn(r.whisper);
+      if (!_whPoll) _whPoll = setInterval(pollWhisper, 1500);
+    } catch(e){ toast("Не удалось начать загрузку: " + e.message, true); }
+  };
+}
+
 /* ── Вкладки ── */
 document.querySelectorAll("nav [data-tab]").forEach(b => b.onclick = () => showTab(b.dataset.tab));
 function showTab(name){
@@ -394,6 +434,9 @@ async function boot(){
   $("hkLabel").textContent = pretty(CFG.hotkey.key);
   $("engine").value = CFG.stt.engine;
   $("fEngine").textContent = CFG.stt.engine === "gigaam" ? "GigaAM" : "Whisper";
+  bindWhisperBtn();
+  updateWhisperBtn(st.whisper);
+  if (st.whisper && st.whisper.downloading && !_whPoll) _whPoll = setInterval(pollWhisper, 1500);
   $("language").value = CFG.stt.language || "";
   $("device").value = CFG.stt.device;
   syncEngineLocks();

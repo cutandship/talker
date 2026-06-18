@@ -101,9 +101,14 @@ def register_ui_routes(api, app: "App", token: str) -> None:
             from constants import APP_VERSION
         except ImportError:
             APP_VERSION = ""
+        try:
+            whisper = app.whisper_status()
+        except Exception:
+            whisper = {}
         return {"config": d, "mics": mics, "autostart": autostart,
                 "sound_palette": palette, "version": APP_VERSION,
-                "history_count": len(app.history.entries())}
+                "history_count": len(app.history.entries()),
+                "whisper": whisper}
 
     @api.post("/ui/api/config", dependencies=[Depends(verify)])
     def _save(payload: dict):
@@ -113,6 +118,14 @@ def register_ui_routes(api, app: "App", token: str) -> None:
         if app.root is not None:
             app.root.after(0, lambda: app._on_settings_saved(cfg))
         return {"ok": True}
+
+    @api.post("/ui/api/download_whisper", dependencies=[Depends(verify)])
+    def _download_whisper():
+        """Кнопка «Скачать Whisper»: тянет модель в плоскую папку (без HF-симлинков)
+        с прогрессом. Сама загрузка — в фоновом потоке; клиент опрашивает
+        /ui/api/state (поле whisper) для процентов."""
+        started = app.start_whisper_download()
+        return {"ok": True, "started": started, "whisper": app.whisper_status()}
 
     @api.post("/ui/api/widget_preview", dependencies=[Depends(verify)])
     def _widget_preview(payload: dict):
