@@ -184,14 +184,13 @@ class AudioConfig:
     mic_index: int = -1               # -1 = system default
     mic_gain: float = 1.0
     source: str = "mic"               # "mic" | "system" (WASAPI loopback)
-    duck_other_apps: bool = False     # OFF by default: master-mode ducking drives
-                                      # apartment-bound CoreAudio COM and can crash
-                                      # natively on restore (gc Release across
-                                      # threads, 0xc0000005). Opt in at your own
-                                      # risk via Settings → Аудио.
-    duck_level: float = 0.2           # 0.0 = full mute, 1.0 = no change
-    duck_mode: str = "master"         # "master" = system volume (recommended)
-                                      # "sessions" = per-app (skips Talker)
+    duck_other_apps: bool = True      # ON: silence other apps while recording. The
+                                      # COM crash that made this risky is fixed
+                                      # (cached endpoint, no global gc.collect).
+    duck_level: float = 0.0           # 0.0 = FULL MUTE (default), 1.0 = no change
+    duck_mode: str = "sessions"       # "sessions" = per-app mixer volume → works on
+                                      # Bluetooth / decoupled outputs (the master
+                                      # endpoint volume doesn't). "master" = system.
     # Noise-reduction tuning. "non_stationary" handles real-life backgrounds
     # (fans, traffic, AC) far better than the old "stationary" mode.
     nr_mode: str = "non_stationary"   # "stationary" | "non_stationary"
