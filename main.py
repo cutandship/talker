@@ -1641,15 +1641,21 @@ class App:
             self._last_paste_char = text[-1] if text else ""
             self._last_paste_time = time.monotonic()
 
-        # Auto-copy the dictated text to the clipboard so the user can re-paste
-        # it manually. Overrides restore_clipboard when on: cancel the restore
-        # that clipboard-mode injection scheduled, else it would wipe our text
-        # ~4 s later. Runs on success AND on "none" (clipboard is then the only
-        # way to recover the text).
+        # Auto-copy the dictated text to the clipboard so the user can re-paste it
+        # manually. Overrides restore_clipboard when on.
         if self.config.output.copy_to_clipboard and clip_text:
             try:
-                pyperclip.copy(clip_text)
-                injector.cancel_clipboard_restore()
+                if method == "clipboard":
+                    # Clipboard injection ALREADY put the text on the clipboard and
+                    # fired Ctrl+V. Re-`copy()`-ing here races the still-in-flight
+                    # paste — the app reads a half-rewritten clipboard and inserts
+                    # garbage («Раз,а,…………»). So only cancel the scheduled
+                    # restore-of-previous; leave the text that's already there.
+                    injector.cancel_clipboard_restore()
+                else:
+                    # uia / sendinput never touched the clipboard → safe to set it.
+                    pyperclip.copy(clip_text)
+                    injector.cancel_clipboard_restore()
             except Exception:
                 logger.debug("copy_to_clipboard failed", exc_info=True)
         return method

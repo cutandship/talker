@@ -131,7 +131,9 @@ class OutputConfig:
                                         # Перекрывает restore_clipboard, когда вкл.
     show_bubble: bool = False           # legacy "always show"
     bubble_mode: str = "on_failure"     # "always" | "on_failure" | "off"
-    injection_mode: str = "auto"   # "auto" | "uia" | "sendinput" | "clipboard"
+    injection_mode: str = "clipboard"  # clipboard = copy+Ctrl+V, самый надёжный
+                                       # (auto's UIA/SendInput путь бьёт текст в
+                                       # новом Блокноте Win11). uia | sendinput | auto
     streaming: bool = False        # вставлять текст по ходу речи (см. _BgJob)
     punctuation_fallback: bool = False  # GigaAM v3 пунктуирует сама → фолбэк OFF по умолчанию
     remove_fillers: bool = True    # детерминированный скрипт-стриппер паразитов и

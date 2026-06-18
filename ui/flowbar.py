@@ -587,6 +587,17 @@ class FlowBar:
                      or any(b > 0.02 for b in self._bar_h))
         fps = self._FPS_HI if (active or animating) else self._FPS_LO
 
+        # Re-assert topmost ~1×/sec. Another app grabbing the foreground (e.g.
+        # pasting into Notepad, opening a window) can sink the pill behind it, and
+        # Tk won't re-apply a `-topmost` it believes is still set. Toggling forces
+        # WS_EX_TOPMOST back on; overrideredirect → no activation / focus steal.
+        if self._tick_n % max(1, fps) == 0 and not self._user_hidden:
+            try:
+                self._win.attributes("-topmost", False)
+                self._win.attributes("-topmost", True)
+            except Exception:
+                logger.debug("topmost re-assert suppressed", exc_info=True)
+
         # Re-clamp on monitor/resolution change (~once a second): if the pill
         # ended up off-screen (display unplugged, resolution dropped), pull it
         # back to its anchor zone. Skipped while dragging.
