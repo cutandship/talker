@@ -7,6 +7,8 @@
 
 Первый публичный релиз.
 
+### ⬇️ [Скачать TalkerSetup.exe (292 МБ)](https://github.com/cutandship/talker/releases/download/v0.1.0/TalkerSetup.exe)
+
 ## ⬇️ Что скачать
 
 **`TalkerSetup.exe` (293 МБ)** — всё внутри: модель распознавания (GigaAM v3),

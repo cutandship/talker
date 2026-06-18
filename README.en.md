@@ -15,6 +15,13 @@ Russian speech); any other language goes through Whisper.
 <!-- Demo: record a 5-sec GIF (Right Alt → dictate → text), drop it at assets/demo.gif and uncomment: -->
 <!-- ![Talker demo](assets/demo.gif) -->
 
+## Download
+
+### ⬇️ [Install Talker — TalkerSetup.exe (292 MB)](https://github.com/cutandship/talker/releases/latest)
+
+Offline installer for Windows 10/11: the recognition model, runtime and all
+dependencies are already inside — works out of the box, no internet, no Python.
+
 ## Features
 
 - **Push-to-talk** — hold `Right Alt`, speak, release. Text is inserted into the
